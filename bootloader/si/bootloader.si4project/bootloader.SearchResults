@@ -1,0 +1,4 @@
+---- BAK_INTACTFLG_VAL Matches (3 in 1 files) ----
+main.c (src) line 23 : #define BAK_INTACTFLG_VAL			(0x5AA5A55A)		// BAK区完整标志值
+main in main.c (src) : 		if((u32Val1==(~u32Val2)) && (u32Val1==BAK_INTACTFLG_VAL))//((u32Val1==(~u32Val2)) && (u32Val1==APP_UPDATEFLG_VAL))
+main in main.c (src) : 			if((u32Val1==(~u32Val2)) && (u32Val1==BAK_INTACTFLG_VAL))

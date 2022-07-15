@@ -1,0 +1,2999 @@
+
+bootloader.elf:     file format elf32-littleriscv
+bootloader.elf
+architecture: riscv:rv32, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x10100000
+
+Program Header:
+    LOAD off    0x00001000 vaddr 0x10100000 paddr 0x10100000 align 2**12
+         filesz 0x00000e88 memsz 0x00000e88 flags r-x
+    LOAD off    0x00002000 vaddr 0x20000000 paddr 0x10100e88 align 2**12
+         filesz 0x000000b0 memsz 0x000000b0 flags rw-
+    LOAD off    0x00003000 vaddr 0x20002000 paddr 0x20002000 align 2**12
+         filesz 0x00000000 memsz 0x00000800 flags rw-
+
+Sections:
+Idx Name                       Size      VMA       LMA       File off  Algn  Flags
+  0 .init                      00000060  10100000  10100000  00001000  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ilalign                   00000000  10100060  10100060  000020b0  2**0  CONTENTS
+  2 .text                      00000e22  10100060  10100060  00001060  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 .sdata2._global_impure_ptr 00000004  10100e84  10100e84  00001e84  2**2  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .lalign                    00000000  10100e88  10100e88  000020b0  2**0  CONTENTS
+  5 .dalign                    00000000  20000000  20000000  000020b0  2**0  CONTENTS
+  6 .data                      000000b0  20000000  10100e88  00002000  2**2  CONTENTS, ALLOC, LOAD, DATA
+  7 .bss                       00000000  200000b0  10100f38  00000000  2**0  ALLOC
+  8 .stack                     00000800  20002000  20002000  00003000  2**0  ALLOC
+  9 .debug_info                00002b88  00000000  00000000  000020b0  2**0  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_abbrev              00000cdb  00000000  00000000  00004c38  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc                 00000e48  00000000  00000000  00005913  2**0  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_aranges             00000200  00000000  00000000  00006760  2**3  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges              00000458  00000000  00000000  00006960  2**0  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_line                00003628  00000000  00000000  00006db8  2**0  CONTENTS, READONLY, DEBUGGING
+ 15 .debug_str                 00001178  00000000  00000000  0000a3e0  2**0  CONTENTS, READONLY, DEBUGGING
+ 16 .comment                   00000039  00000000  00000000  0000b558  2**0  CONTENTS, READONLY
+ 17 .debug_frame               00000524  00000000  00000000  0000b594  2**2  CONTENTS, READONLY, DEBUGGING
+SYMBOL TABLE:
+10100000 l    d  .init	00000000 .init
+10100060 l    d  .ilalign	00000000 .ilalign
+10100060 l    d  .text	00000000 .text
+10100e84 l    d  .sdata2._global_impure_ptr	00000000 .sdata2._global_impure_ptr
+10100e88 l    d  .lalign	00000000 .lalign
+20000000 l    d  .dalign	00000000 .dalign
+20000000 l    d  .data	00000000 .data
+200000b0 l    d  .bss	00000000 .bss
+20002000 l    d  .stack	00000000 .stack
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    df *ABS*	00000000 main.c
+00000000 l    df *ABS*	00000000 _exit.c
+00000000 l    df *ABS*	00000000 init.c
+00000000 l    df *ABS*	00000000 system_phnx02.c
+00000000 l    df *ABS*	00000000 efc.c
+00000000 l    df *ABS*	00000000 iom.c
+00000000 l    df *ABS*	00000000 wdt.c
+00000000 l    df *ABS*	00000000 exit.c
+00000000 l    df *ABS*	00000000 impure.c
+20000044 l     O .data	00000060 impure_data
+101005a4  w    F .text	00000002 TIMER2_IrqHandler
+1010059e  w    F .text	00000002 PMU_IrqHandler
+200008a8 g       .data	00000000 __global_pointer$
+10100598  w    F .text	00000002 MSOFT_IntHandler
+1010099c g     F .text	0000003a EFC_PageLoad
+101005a6  w    F .text	00000002 TIMER3_IrqHandler
+1010059c  w    F .text	00000002 NMI_Handler
+00000800 g       *ABS*	00000000 __stack_size
+101009d6 g     F .text	00000142 EFC_FlashPageWrite
+10100d4e g     F .text	00000014 GPIO_ClrPin
+10100b18 g     F .text	000000c2 EFC_PAGE_BUFFERWrite
+101008fc g     F .text	00000066 EFC_PageProgram
+200000a8 g     O .data	00000004 SystemCoreClock
+101007ba g     F .text	00000142 EFC_Init
+10100634 g     F .text	0000003c handle_trap
+101005a8  w    F .text	00000002 TIMER4_IrqHandler
+20002000 g       .stack	00000000 _heap_end
+10100e84 g     O .sdata2._global_impure_ptr	00000004 _global_impure_ptr
+10100bda g     F .text	00000164 GPIO_PinConfigure
+101005be g     F .text	00000076 MEXT_IntHandler
+101005a0  w    F .text	00000002 LPT_IrqHandler
+101005ba  w    F .text	00000002 TWC_IrqHandler
+20002800 g       .stack	00000000 _sp
+101005b2  w    F .text	00000002 EFC_IrqHandler
+10100000 g     F .init	00000000 _start
+101005b4  w    F .text	00000002 IOM_IrqHandler
+101005bc  w    F .text	00000002 LPU_IrqHandler
+101005ac  w    F .text	00000002 UART2_IrqHandler
+10100d62 g     F .text	000000be WDT_Init
+1010059a  w    F .text	00000002 MEXP_Handler
+200000b0 g       .data	00000000 __bss_start
+10100060 g     F .text	000001a0 main
+10100558 g       .text	00000000 trap_entry
+101005aa  w    F .text	00000002 UART1_IrqHandler
+10100734 g     F .text	00000086 SystemInit
+10100e20 g     F .text	00000030 WDT_DeInit
+101005ae  w    F .text	00000002 SPI_IrqHandler
+101005b0  w    F .text	00000002 ANAC_IrqHandler
+10100200 g     F .text	000000cc carry_bak_code
+101005b8  w    F .text	00000002 RTC_IrqHandler
+10100d3e g     F .text	00000010 GPIO_SetPin
+20000000 g       .dalign	00000000 _data
+101005b6  w    F .text	00000002 I2C_IrqHandler
+200000b0 g       .data	00000000 _edata
+200000b0 g       .data	00000000 _end
+10100e88 g       .lalign	00000000 _data_lma
+10100e50 g     F .text	00000032 exit
+10100670 g     F .text	000000c4 SystemCoreClockUpdate
+10100556 g     F .text	00000002 _exit
+101002cc g     F .text	0000028a Fault_Display
+101005a2  w    F .text	00000002 TIMER1_IrqHandler
+10100962 g     F .text	0000003a EFC_PageErase
+
+
+
+Disassembly of section .init:
+
+10100000 <_start>:
+_start():
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:9
+	.globl _start
+	.type _start,@function
+/* set all registers to zero */
+
+_start:
+	csrrci x0, mstatus, 0x8  //Disable the interrupt globally
+10100000:	30047073          	csrci	mstatus,8
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:12
+.option push
+.option norelax
+	la gp, __global_pointer$
+10100004:	0ff01197          	auipc	gp,0xff01
+10100008:	8a418193          	addi	gp,gp,-1884 # 200008a8 <__global_pointer$>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:14
+.option pop
+	la sp, _sp
+1010000c:	0ff02117          	auipc	sp,0xff02
+10100010:	7f410113          	addi	sp,sp,2036 # 20002800 <_sp>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:19
+
+    #csrrsi x0, 0xbfe, 0x8 // Disable I-Cache
+2:
+	/* Load data section */
+	la a0, _data_lma
+10100014:	00001517          	auipc	a0,0x1
+10100018:	e7450513          	addi	a0,a0,-396 # 10100e88 <_data_lma>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:20
+	la a1, _data
+1010001c:	0ff00597          	auipc	a1,0xff00
+10100020:	fe458593          	addi	a1,a1,-28 # 20000000 <_data>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:21
+	la a2, _edata
+10100024:	80818613          	addi	a2,gp,-2040 # 200000b0 <__bss_start>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:22
+	bgeu a1, a2, 2f
+10100028:	00c5fa63          	bgeu	a1,a2,1010003c <_start+0x3c>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:24
+1:
+	lw t0, (a0)
+1010002c:	00052283          	lw	t0,0(a0)
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:25
+	sw t0, (a1)
+10100030:	0055a023          	sw	t0,0(a1)
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:26
+	addi a0, a0, 4
+10100034:	0511                	addi	a0,a0,4
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:27
+	addi a1, a1, 4
+10100036:	0591                	addi	a1,a1,4
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:28
+	bltu a1, a2, 1b
+10100038:	fec5eae3          	bltu	a1,a2,1010002c <_start+0x2c>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:31
+2:
+	/* Clear bss section */
+	la a0, __bss_start
+1010003c:	80818513          	addi	a0,gp,-2040 # 200000b0 <__bss_start>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:32
+	la a1, _end
+10100040:	80818593          	addi	a1,gp,-2040 # 200000b0 <__bss_start>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:33
+	bgeu a0, a1, 2f
+10100044:	00b57763          	bgeu	a0,a1,10100052 <_start+0x52>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:35
+1:
+	sw zero, (a0)
+10100048:	00052023          	sw	zero,0(a0)
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:36
+	addi a0, a0, 4
+1010004c:	0511                	addi	a0,a0,4
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:37
+	bltu a0, a1, 1b
+1010004e:	feb56de3          	bltu	a0,a1,10100048 <_start+0x48>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:40
+2:
+
+	call SystemInit
+10100052:	25cd                	jal	10100734 <SystemInit>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:50
+	csrs mstatus, t0
+	csrw fcsr, x0
+#endif
+
+	/* argc = argv = 0 */
+	li a0, 0
+10100054:	4501                	li	a0,0
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:51
+	li a1, 0
+10100056:	4581                	li	a1,0
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:52
+	call main
+10100058:	2021                	jal	10100060 <main>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:53
+	tail exit
+1010005a:	5f70006f          	j	10100e50 <exit>
+E:\work\project\bootloader\Debug/../FDV32S300/env/start.S:56
+
+1:
+	j 1b
+1010005e:	a001                	j	1010005e <_start+0x5e>
+
+Disassembly of section .text:
+
+10100060 <main>:
+main():
+E:\work\project\bootloader\Debug/../src/main.c:258
+		delay_ms(2000);
+	}
+}
+
+int main(void)
+{
+10100060:	1141                	addi	sp,sp,-16
+10100062:	c606                	sw	ra,12(sp)
+10100064:	c422                	sw	s0,8(sp)
+10100066:	c226                	sw	s1,4(sp)
+E:\work\project\bootloader\Debug/../src/main.c:263
+	u8 carryCnt;
+	u32  u32Val1,u32Val2;
+
+	// 关闭全局中断
+	DisableGlobleIRQ();
+10100068:	300477f3          	csrrci	a5,mstatus,8
+delay_ms():
+E:\work\project\bootloader\Debug/../src/main.c:222
+	for (volatile u16 j=0; j < n; j++)
+1010006c:	00011023          	sh	zero,0(sp)
+10100070:	00015783          	lhu	a5,0(sp)
+10100074:	3e700713          	li	a4,999
+10100078:	04f76363          	bltu	a4,a5,101000be <main+0x5e>
+delay_1ms():
+E:\work\project\bootloader\Debug/../src/main.c:209
+	for (i=0;i<714;i++)
+1010007c:	2c900713          	li	a4,713
+delay_ms():
+E:\work\project\bootloader\Debug/../src/main.c:222
+	for (volatile u16 j=0; j < n; j++)
+10100080:	3e700693          	li	a3,999
+delay_1ms():
+E:\work\project\bootloader\Debug/../src/main.c:209
+	for (i=0;i<714;i++)
+10100084:	00011123          	sh	zero,2(sp)
+10100088:	00215783          	lhu	a5,2(sp)
+1010008c:	00f76e63          	bltu	a4,a5,101000a8 <main+0x48>
+E:\work\project\bootloader\Debug/../src/main.c:211
+		asm("nop");
+10100090:	0001                	nop
+E:\work\project\bootloader\Debug/../src/main.c:209
+	for (i=0;i<714;i++)
+10100092:	00215783          	lhu	a5,2(sp)
+10100096:	0785                	addi	a5,a5,1
+10100098:	07c2                	slli	a5,a5,0x10
+1010009a:	83c1                	srli	a5,a5,0x10
+1010009c:	00f11123          	sh	a5,2(sp)
+101000a0:	00215783          	lhu	a5,2(sp)
+101000a4:	fef776e3          	bgeu	a4,a5,10100090 <main+0x30>
+delay_ms():
+E:\work\project\bootloader\Debug/../src/main.c:222
+	for (volatile u16 j=0; j < n; j++)
+101000a8:	00015783          	lhu	a5,0(sp)
+101000ac:	0785                	addi	a5,a5,1
+101000ae:	07c2                	slli	a5,a5,0x10
+101000b0:	83c1                	srli	a5,a5,0x10
+101000b2:	00f11023          	sh	a5,0(sp)
+101000b6:	00015783          	lhu	a5,0(sp)
+101000ba:	fcf6f5e3          	bgeu	a3,a5,10100084 <main+0x24>
+main():
+E:\work\project\bootloader\Debug/../src/main.c:267
+	delay_ms(1000);
+
+	// 配置TIMER时钟
+	SystemCoreClockUpdate();
+101000be:	2b4d                	jal	10100670 <SystemCoreClockUpdate>
+E:\work\project\bootloader\Debug/../src/main.c:269
+	PARAM_CHECK(SystemCoreClock < 1000000);
+	SYSC->TIMCLKDIV = (SystemCoreClock / 1000000 - 1);
+101000c0:	0ff00717          	auipc	a4,0xff00
+101000c4:	fe870713          	addi	a4,a4,-24 # 200000a8 <SystemCoreClock>
+101000c8:	431c                	lw	a5,0(a4)
+101000ca:	000f46b7          	lui	a3,0xf4
+101000ce:	24068693          	addi	a3,a3,576 # f4240 <__stack_size+0xf3a40>
+101000d2:	02d7d7b3          	divu	a5,a5,a3
+101000d6:	40001337          	lui	t1,0x40001
+E:\work\project\bootloader\Debug/../src/main.c:273
+	SYSC->CLKENCFG |= SYSC_CLKENCFG_TIM_PCK;
+
+	SYSC->CLKENCFG |= SYSC_CLKENCFG_TIM3_CNT;
+	TIMERS->CON |= BIT(2); // 使能TIMER3
+101000da:	40010637          	lui	a2,0x40010
+E:\work\project\bootloader\Debug/../src/main.c:283
+	GPIO_PinConfigure(LED_GREEN | LED_RED, DISABLE, ENABLE, DISABLE, DISABLE, DISABLE);
+	LED_OFF(LED_GREEN | LED_RED);
+
+	WDT_Init(WDT_RST_N_MS, PMU_CR_LPTCLKSEL_LRC, WDT_OV_RST);
+
+	carryCnt = 0;
+101000de:	4481                	li	s1,0
+E:\work\project\bootloader\Debug/../src/main.c:286
+	while(1)
+	{
+		WDT_ClrCount();
+101000e0:	40013437          	lui	s0,0x40013
+E:\work\project\bootloader\Debug/../src/main.c:269
+	SYSC->TIMCLKDIV = (SystemCoreClock / 1000000 - 1);
+101000e4:	17fd                	addi	a5,a5,-1
+101000e6:	00f32e23          	sw	a5,28(t1) # 4000101c <_sp+0x1fffe81c>
+E:\work\project\bootloader\Debug/../src/main.c:270
+	SYSC->CLKENCFG |= SYSC_CLKENCFG_TIM_PCK;
+101000ea:	00832783          	lw	a5,8(t1)
+101000ee:	0207e793          	ori	a5,a5,32
+101000f2:	00f32423          	sw	a5,8(t1)
+E:\work\project\bootloader\Debug/../src/main.c:272
+	SYSC->CLKENCFG |= SYSC_CLKENCFG_TIM3_CNT;
+101000f6:	00832783          	lw	a5,8(t1)
+101000fa:	1007e793          	ori	a5,a5,256
+101000fe:	00f32423          	sw	a5,8(t1)
+E:\work\project\bootloader\Debug/../src/main.c:273
+	TIMERS->CON |= BIT(2); // 使能TIMER3
+10100102:	0a062783          	lw	a5,160(a2) # 400100a0 <_sp+0x2000d8a0>
+10100106:	0047e793          	ori	a5,a5,4
+1010010a:	0af62023          	sw	a5,160(a2)
+E:\work\project\bootloader\Debug/../src/main.c:275
+	EFC_Init();
+1010010e:	2575                	jal	101007ba <EFC_Init>
+BuzLed_Pwm_init():
+E:\work\project\bootloader\Debug/../src/main.c:60
+    SystemCoreClockUpdate();
+10100110:	2385                	jal	10100670 <SystemCoreClockUpdate>
+E:\work\project\bootloader\Debug/../src/main.c:62
+    SYSC->BZTIMCLKDIV = (SystemCoreClock / 1000000 - 1);
+10100112:	0ff00717          	auipc	a4,0xff00
+10100116:	f9670713          	addi	a4,a4,-106 # 200000a8 <SystemCoreClock>
+1010011a:	00072283          	lw	t0,0(a4)
+1010011e:	000f46b7          	lui	a3,0xf4
+10100122:	24068693          	addi	a3,a3,576 # f4240 <__stack_size+0xf3a40>
+10100126:	02d2d2b3          	divu	t0,t0,a3
+1010012a:	40001337          	lui	t1,0x40001
+main():
+E:\work\project\bootloader\Debug/../src/main.c:278
+	GPIO_PinConfigure(LED_GREEN | LED_RED, DISABLE, ENABLE, DISABLE, DISABLE, DISABLE);
+1010012e:	4781                	li	a5,0
+10100130:	4701                	li	a4,0
+10100132:	4681                	li	a3,0
+10100134:	4605                	li	a2,1
+10100136:	4581                	li	a1,0
+10100138:	650d                	lui	a0,0x3
+BuzLed_Pwm_init():
+E:\work\project\bootloader\Debug/../src/main.c:62
+    SYSC->BZTIMCLKDIV = (SystemCoreClock / 1000000 - 1);
+1010013a:	12fd                	addi	t0,t0,-1
+1010013c:	02532023          	sw	t0,32(t1) # 40001020 <_sp+0x1fffe820>
+E:\work\project\bootloader\Debug/../src/main.c:63
+	SYSC->CLKENCFG |= SYSC_CLKENCFG_TIM4_CNT;
+10100140:	00832283          	lw	t0,8(t1)
+10100144:	2002e293          	ori	t0,t0,512
+10100148:	00532423          	sw	t0,8(t1)
+main():
+E:\work\project\bootloader\Debug/../src/main.c:278
+	GPIO_PinConfigure(LED_GREEN | LED_RED, DISABLE, ENABLE, DISABLE, DISABLE, DISABLE);
+1010014c:	28f000ef          	jal	ra,10100bda <GPIO_PinConfigure>
+E:\work\project\bootloader\Debug/../src/main.c:279
+	LED_OFF(LED_GREEN | LED_RED);
+10100150:	650d                	lui	a0,0x3
+10100152:	3fd000ef          	jal	ra,10100d4e <GPIO_ClrPin>
+E:\work\project\bootloader\Debug/../src/main.c:281
+	WDT_Init(WDT_RST_N_MS, PMU_CR_LPTCLKSEL_LRC, WDT_OV_RST);
+10100156:	6509                	lui	a0,0x2
+10100158:	4605                	li	a2,1
+1010015a:	4581                	li	a1,0
+1010015c:	f4050513          	addi	a0,a0,-192 # 1f40 <__stack_size+0x1740>
+10100160:	403000ef          	jal	ra,10100d62 <WDT_Init>
+E:\work\project\bootloader\Debug/../src/main.c:283
+	carryCnt = 0;
+10100164:	a835                	j	101001a0 <main+0x140>
+E:\work\project\bootloader\Debug/../src/main.c:308
+		}
+
+		carryCnt = 0;
+		
+		// 读取程序完整性标志区
+		u32Val1 = REG32(APP_INTACTFLG_AREA);
+10100166:	1011f7b7          	lui	a5,0x1011f
+1010016a:	4007a703          	lw	a4,1024(a5) # 1011f400 <_data_lma+0x1e578>
+E:\work\project\bootloader\Debug/../src/main.c:309
+		u32Val2 = REG32(APP_INTACTFLG_AREA + 512);
+1010016e:	6007a783          	lw	a5,1536(a5)
+E:\work\project\bootloader\Debug/../src/main.c:311
+		// APP完整性标志有效
+		if((u32Val1==(~u32Val2)) && (u32Val1==APP_INTACTFLG_VAL))
+10100172:	fff7c793          	not	a5,a5
+10100176:	06e78263          	beq	a5,a4,101001da <main+0x17a>
+E:\work\project\bootloader\Debug/../src/main.c:319
+			Jump_to_APP();
+		}
+		else
+		{
+			// 程序不完整，判断BAK是否完整
+			u32Val1 = REG32(BAK_INTACTFLG_AREA);
+1010017a:	101207b7          	lui	a5,0x10120
+1010017e:	8007a703          	lw	a4,-2048(a5) # 1011f800 <_data_lma+0x1e978>
+E:\work\project\bootloader\Debug/../src/main.c:320
+			u32Val2 = REG32(BAK_INTACTFLG_AREA + 512);
+10100182:	a007a783          	lw	a5,-1536(a5)
+E:\work\project\bootloader\Debug/../src/main.c:322
+			// BAK完整性标志有效
+			if((u32Val1==(~u32Val2)) && (u32Val1==BAK_INTACTFLG_VAL))
+10100186:	fff7c793          	not	a5,a5
+1010018a:	04e79763          	bne	a5,a4,101001d8 <main+0x178>
+E:\work\project\bootloader\Debug/../src/main.c:322 (discriminator 1)
+1010018e:	5aa5a737          	lui	a4,0x5aa5a
+10100192:	55a70713          	addi	a4,a4,1370 # 5aa5a55a <_sp+0x3aa57d5a>
+10100196:	04e79163          	bne	a5,a4,101001d8 <main+0x178>
+E:\work\project\bootloader\Debug/../src/main.c:325
+			{
+				// 搬运BAK区代码
+				if(carry_bak_code() == FALSE)
+1010019a:	209d                	jal	10100200 <carry_bak_code>
+1010019c:	cd15                	beqz	a0,101001d8 <main+0x178>
+E:\work\project\bootloader\Debug/../src/main.c:305
+		carryCnt = 0;
+1010019e:	4481                	li	s1,0
+E:\work\project\bootloader\Debug/../src/main.c:286
+		WDT_ClrCount();
+101001a0:	06900793          	li	a5,105
+101001a4:	40f42023          	sw	a5,1024(s0) # 40013400 <_sp+0x20010c00>
+101001a8:	09600793          	li	a5,150
+101001ac:	40f42023          	sw	a5,1024(s0)
+E:\work\project\bootloader\Debug/../src/main.c:289
+		u32Val1 = REG32(APP_UPDATEFLG_AREA);
+101001b0:	1011f7b7          	lui	a5,0x1011f
+101001b4:	4398                	lw	a4,0(a5)
+E:\work\project\bootloader\Debug/../src/main.c:290
+		u32Val2 = REG32(APP_UPDATEFLG_AREA + 512);
+101001b6:	2007a783          	lw	a5,512(a5) # 1011f200 <_data_lma+0x1e378>
+E:\work\project\bootloader\Debug/../src/main.c:292
+		if((u32Val1==(~u32Val2)) && (u32Val1==APP_UPDATEFLG_VAL))
+101001ba:	fff7c793          	not	a5,a5
+101001be:	fae794e3          	bne	a5,a4,10100166 <main+0x106>
+E:\work\project\bootloader\Debug/../src/main.c:292 (discriminator 1)
+101001c2:	5aa56737          	lui	a4,0x5aa56
+101001c6:	aa570713          	addi	a4,a4,-1371 # 5aa55aa5 <_sp+0x3aa532a5>
+101001ca:	f8e79ee3          	bne	a5,a4,10100166 <main+0x106>
+E:\work\project\bootloader\Debug/../src/main.c:295
+			if(carry_bak_code() == FALSE)
+101001ce:	280d                	jal	10100200 <carry_bak_code>
+101001d0:	f959                	bnez	a0,10100166 <main+0x106>
+E:\work\project\bootloader\Debug/../src/main.c:297
+				if(carryCnt++ >= 4)
+101001d2:	478d                	li	a5,3
+101001d4:	0297f263          	bgeu	a5,s1,101001f8 <main+0x198>
+E:\work\project\bootloader\Debug/../src/main.c:299
+					Fault_Display();
+101001d8:	28d5                	jal	101002cc <Fault_Display>
+E:\work\project\bootloader\Debug/../src/main.c:311 (discriminator 1)
+		if((u32Val1==(~u32Val2)) && (u32Val1==APP_INTACTFLG_VAL))
+101001da:	a55aa737          	lui	a4,0xa55aa
+101001de:	55a70713          	addi	a4,a4,1370 # a55aa55a <_sp+0x855a7d5a>
+101001e2:	f8e79ce3          	bne	a5,a4,1010017a <main+0x11a>
+Jump_to_APP():
+E:\work\project\bootloader\Debug/../src/main.c:234
+	DisableGlobleIRQ();
+101001e6:	300477f3          	csrrci	a5,mstatus,8
+E:\work\project\bootloader\Debug/../src/main.c:236
+	WDT_DeInit();
+101001ea:	437000ef          	jal	ra,10100e20 <WDT_DeInit>
+E:\work\project\bootloader\Debug/../src/main.c:239
+	Jump_To_Application();
+101001ee:	101017b7          	lui	a5,0x10101
+101001f2:	9782                	jalr	a5
+main():
+E:\work\project\bootloader\Debug/../src/main.c:305
+		carryCnt = 0;
+101001f4:	4481                	li	s1,0
+101001f6:	b76d                	j	101001a0 <main+0x140>
+E:\work\project\bootloader\Debug/../src/main.c:297
+				if(carryCnt++ >= 4)
+101001f8:	0485                	addi	s1,s1,1
+101001fa:	0ff4f493          	andi	s1,s1,255
+101001fe:	b74d                	j	101001a0 <main+0x140>
+
+10100200 <carry_bak_code>:
+carry_bak_code():
+E:\work\project\bootloader\Debug/../src/main.c:156
+{
+10100200:	1141                	addi	sp,sp,-16
+10100202:	c422                	sw	s0,8(sp)
+E:\work\project\bootloader\Debug/../src/main.c:162
+	if(EFC_PageErase(APP_INTACTFLG_AREA) != EFC_SUCCESS)
+10100204:	1011f437          	lui	s0,0x1011f
+10100208:	40040513          	addi	a0,s0,1024 # 1011f400 <_data_lma+0x1e578>
+E:\work\project\bootloader\Debug/../src/main.c:156
+{
+1010020c:	c606                	sw	ra,12(sp)
+1010020e:	c226                	sw	s1,4(sp)
+E:\work\project\bootloader\Debug/../src/main.c:162
+	if(EFC_PageErase(APP_INTACTFLG_AREA) != EFC_SUCCESS)
+10100210:	752000ef          	jal	ra,10100962 <EFC_PageErase>
+10100214:	c519                	beqz	a0,10100222 <carry_bak_code+0x22>
+E:\work\project\bootloader\Debug/../src/main.c:191
+		return FALSE;
+10100216:	4501                	li	a0,0
+E:\work\project\bootloader\Debug/../src/main.c:203
+}
+10100218:	40b2                	lw	ra,12(sp)
+1010021a:	4422                	lw	s0,8(sp)
+1010021c:	4492                	lw	s1,4(sp)
+1010021e:	0141                	addi	sp,sp,16
+10100220:	8082                	ret
+E:\work\project\bootloader\Debug/../src/main.c:164
+	if(EFC_PageErase(APP_INTACTFLG_AREA+512) != EFC_SUCCESS)
+10100222:	60040513          	addi	a0,s0,1536
+10100226:	2f35                	jal	10100962 <EFC_PageErase>
+10100228:	f57d                	bnez	a0,10100216 <carry_bak_code+0x16>
+1010022a:	10110437          	lui	s0,0x10110
+E:\work\project\bootloader\Debug/../src/main.c:169
+		WDT_ClrCount();
+1010022e:	400134b7          	lui	s1,0x40013
+10100232:	a821                	j	1010024a <carry_bak_code+0x4a>
+E:\work\project\bootloader\Debug/../src/main.c:174
+		if(EFC_PAGE_BUFFERWrite(APP_RUN_ADDR + tLen) != EFC_SUCCESS)
+10100234:	7545                	lui	a0,0xffff1
+10100236:	9522                	add	a0,a0,s0
+10100238:	0e1000ef          	jal	ra,10100b18 <EFC_PAGE_BUFFERWrite>
+1010023c:	20040413          	addi	s0,s0,512 # 10110200 <_data_lma+0xf378>
+E:\work\project\bootloader\Debug/../src/main.c:167
+	for(tLen = 0; tLen < APP_MAX_SIZE; tLen += FLASH_PAGE_SIZE)
+10100240:	1011f7b7          	lui	a5,0x1011f
+E:\work\project\bootloader\Debug/../src/main.c:174
+		if(EFC_PAGE_BUFFERWrite(APP_RUN_ADDR + tLen) != EFC_SUCCESS)
+10100244:	f969                	bnez	a0,10100216 <carry_bak_code+0x16>
+E:\work\project\bootloader\Debug/../src/main.c:167 (discriminator 2)
+	for(tLen = 0; tLen < APP_MAX_SIZE; tLen += FLASH_PAGE_SIZE)
+10100246:	00f40f63          	beq	s0,a5,10100264 <carry_bak_code+0x64>
+E:\work\project\bootloader\Debug/../src/main.c:169
+		WDT_ClrCount();
+1010024a:	06900793          	li	a5,105
+1010024e:	40f4a023          	sw	a5,1024(s1) # 40013400 <_sp+0x20010c00>
+10100252:	09600793          	li	a5,150
+E:\work\project\bootloader\Debug/../src/main.c:171
+		if(EFC_PageLoad(BAK_CODE_ADDR + tLen) != EFC_SUCCESS)
+10100256:	8522                	mv	a0,s0
+E:\work\project\bootloader\Debug/../src/main.c:169
+		WDT_ClrCount();
+10100258:	40f4a023          	sw	a5,1024(s1)
+E:\work\project\bootloader\Debug/../src/main.c:171
+		if(EFC_PageLoad(BAK_CODE_ADDR + tLen) != EFC_SUCCESS)
+1010025c:	740000ef          	jal	ra,1010099c <EFC_PageLoad>
+10100260:	d971                	beqz	a0,10100234 <carry_bak_code+0x34>
+10100262:	bf55                	j	10100216 <carry_bak_code+0x16>
+10100264:	101017b7          	lui	a5,0x10101
+10100268:	663d                	lui	a2,0xf
+E:\work\project\bootloader\Debug/../src/main.c:179
+	for(tLen = 0; tLen < APP_MAX_SIZE; tLen += 4)
+1010026a:	101105b7          	lui	a1,0x10110
+1010026e:	a019                	j	10100274 <carry_bak_code+0x74>
+E:\work\project\bootloader\Debug/../src/main.c:179 (discriminator 2)
+10100270:	00b78a63          	beq	a5,a1,10100284 <carry_bak_code+0x84>
+E:\work\project\bootloader\Debug/../src/main.c:181
+		appVal = REG32(APP_RUN_ADDR+tLen);
+10100274:	00c78733          	add	a4,a5,a2
+10100278:	4394                	lw	a3,0(a5)
+E:\work\project\bootloader\Debug/../src/main.c:182
+		bakVal = REG32(BAK_CODE_ADDR+tLen);
+1010027a:	4318                	lw	a4,0(a4)
+E:\work\project\bootloader\Debug/../src/main.c:184
+		if(appVal != bakVal)
+1010027c:	0791                	addi	a5,a5,4
+1010027e:	fee689e3          	beq	a3,a4,10100270 <carry_bak_code+0x70>
+10100282:	bf51                	j	10100216 <carry_bak_code+0x16>
+E:\work\project\bootloader\Debug/../src/main.c:190
+	if(EFC_FlashPageWrite(APP_INTACTFLG_AREA, &u32Val, 1, EFC_FLASH_WRITE_WORD) != EFC_SUCCESS)
+10100284:	1011f437          	lui	s0,0x1011f
+E:\work\project\bootloader\Debug/../src/main.c:189
+	u32Val = APP_INTACTFLG_VAL;
+10100288:	a55aa7b7          	lui	a5,0xa55aa
+1010028c:	55a78793          	addi	a5,a5,1370 # a55aa55a <_sp+0x855a7d5a>
+E:\work\project\bootloader\Debug/../src/main.c:190
+	if(EFC_FlashPageWrite(APP_INTACTFLG_AREA, &u32Val, 1, EFC_FLASH_WRITE_WORD) != EFC_SUCCESS)
+10100290:	4685                	li	a3,1
+10100292:	4605                	li	a2,1
+10100294:	858a                	mv	a1,sp
+10100296:	40040513          	addi	a0,s0,1024 # 1011f400 <_data_lma+0x1e578>
+E:\work\project\bootloader\Debug/../src/main.c:189
+	u32Val = APP_INTACTFLG_VAL;
+1010029a:	c03e                	sw	a5,0(sp)
+E:\work\project\bootloader\Debug/../src/main.c:190
+	if(EFC_FlashPageWrite(APP_INTACTFLG_AREA, &u32Val, 1, EFC_FLASH_WRITE_WORD) != EFC_SUCCESS)
+1010029c:	2f2d                	jal	101009d6 <EFC_FlashPageWrite>
+1010029e:	fd25                	bnez	a0,10100216 <carry_bak_code+0x16>
+E:\work\project\bootloader\Debug/../src/main.c:192
+	u32Val = ~APP_INTACTFLG_VAL;
+101002a0:	5aa567b7          	lui	a5,0x5aa56
+101002a4:	aa578793          	addi	a5,a5,-1371 # 5aa55aa5 <_sp+0x3aa532a5>
+E:\work\project\bootloader\Debug/../src/main.c:193
+	if(EFC_FlashPageWrite(APP_INTACTFLG_AREA+512, &u32Val, 1, EFC_FLASH_WRITE_WORD) != EFC_SUCCESS)
+101002a8:	4685                	li	a3,1
+101002aa:	4605                	li	a2,1
+101002ac:	858a                	mv	a1,sp
+101002ae:	60040513          	addi	a0,s0,1536
+E:\work\project\bootloader\Debug/../src/main.c:192
+	u32Val = ~APP_INTACTFLG_VAL;
+101002b2:	c03e                	sw	a5,0(sp)
+E:\work\project\bootloader\Debug/../src/main.c:193
+	if(EFC_FlashPageWrite(APP_INTACTFLG_AREA+512, &u32Val, 1, EFC_FLASH_WRITE_WORD) != EFC_SUCCESS)
+101002b4:	270d                	jal	101009d6 <EFC_FlashPageWrite>
+101002b6:	f125                	bnez	a0,10100216 <carry_bak_code+0x16>
+E:\work\project\bootloader\Debug/../src/main.c:197
+	if(EFC_PageErase(APP_UPDATEFLG_AREA) != EFC_SUCCESS)
+101002b8:	1011f537          	lui	a0,0x1011f
+101002bc:	255d                	jal	10100962 <EFC_PageErase>
+101002be:	fd21                	bnez	a0,10100216 <carry_bak_code+0x16>
+E:\work\project\bootloader\Debug/../src/main.c:199
+	if(EFC_PageErase(APP_UPDATEFLG_AREA+512) != EFC_SUCCESS)
+101002c0:	20040513          	addi	a0,s0,512
+101002c4:	2d79                	jal	10100962 <EFC_PageErase>
+101002c6:	00153513          	seqz	a0,a0
+101002ca:	b7b9                	j	10100218 <carry_bak_code+0x18>
+
+101002cc <Fault_Display>:
+Fault_Display():
+E:\work\project\bootloader\Debug/../src/main.c:244
+{
+101002cc:	1131                	addi	sp,sp,-20
+101002ce:	c622                	sw	s0,12(sp)
+BuzLed_Self_Excited():
+E:\work\project\bootloader\Debug/../src/main.c:133
+	ANAC_POWER_ON();
+101002d0:	6419                	lui	s0,0x6
+Fault_Display():
+E:\work\project\bootloader\Debug/../src/main.c:244
+{
+101002d2:	c806                	sw	ra,16(sp)
+BuzLed_Self_Excited():
+E:\work\project\bootloader\Debug/../src/main.c:133
+	ANAC_POWER_ON();
+101002d4:	a5a40413          	addi	s0,s0,-1446 # 5a5a <__stack_size+0x525a>
+Fault_Display():
+E:\work\project\bootloader\Debug/../src/main.c:247 (discriminator 1)
+		WDT_ClrCount();
+101002d8:	400137b7          	lui	a5,0x40013
+101002dc:	06900713          	li	a4,105
+101002e0:	40e7a023          	sw	a4,1024(a5) # 40013400 <_sp+0x20010c00>
+101002e4:	09600713          	li	a4,150
+101002e8:	40e7a023          	sw	a4,1024(a5)
+BuzLed_Self_Excited():
+E:\work\project\bootloader\Debug/../src/main.c:133 (discriminator 1)
+	ANAC_POWER_ON();
+101002ec:	400127b7          	lui	a5,0x40012
+101002f0:	6729                	lui	a4,0xa
+101002f2:	c487ac23          	sw	s0,-936(a5) # 40011c58 <_sp+0x2000f458>
+101002f6:	5a570713          	addi	a4,a4,1445 # a5a5 <__stack_size+0x9da5>
+101002fa:	c4e7ac23          	sw	a4,-936(a5)
+101002fe:	c1c7a703          	lw	a4,-996(a5)
+DelayNus():
+E:\work\project\bootloader\Debug/../src/main.c:52 (discriminator 1)
+    u32 start = TIM3->CTVAL;
+10100302:	400106b7          	lui	a3,0x40010
+BuzLed_Self_Excited():
+E:\work\project\bootloader\Debug/../src/main.c:133 (discriminator 1)
+	ANAC_POWER_ON();
+10100306:	04076713          	ori	a4,a4,64
+1010030a:	c0e7ae23          	sw	a4,-996(a5)
+DelayNus():
+E:\work\project\bootloader\Debug/../src/main.c:52 (discriminator 1)
+    u32 start = TIM3->CTVAL;
+1010030e:	5a98                	lw	a4,48(a3)
+E:\work\project\bootloader\Debug/../src/main.c:53 (discriminator 1)
+    while((start -(int)TIM3->CTVAL) < delay) __asm("NOP");
+10100310:	5a9c                	lw	a5,48(a3)
+10100312:	06300693          	li	a3,99
+10100316:	40f707b3          	sub	a5,a4,a5
+1010031a:	00f6ea63          	bltu	a3,a5,1010032e <Fault_Display+0x62>
+E:\work\project\bootloader\Debug/../src/main.c:53
+1010031e:	40010637          	lui	a2,0x40010
+10100322:	0001                	nop
+10100324:	5a1c                	lw	a5,48(a2)
+10100326:	40f707b3          	sub	a5,a4,a5
+1010032a:	fef6fce3          	bgeu	a3,a5,10100322 <Fault_Display+0x56>
+BuzLed_Self_Excited():
+E:\work\project\bootloader\Debug/../src/main.c:133
+	ANAC_POWER_ON();
+1010032e:	400127b7          	lui	a5,0x40012
+10100332:	6729                	lui	a4,0xa
+10100334:	c487ac23          	sw	s0,-936(a5) # 40011c58 <_sp+0x2000f458>
+10100338:	5a570713          	addi	a4,a4,1445 # a5a5 <__stack_size+0x9da5>
+1010033c:	c4e7ac23          	sw	a4,-936(a5)
+10100340:	c1c7a703          	lw	a4,-996(a5)
+DelayNus():
+E:\work\project\bootloader\Debug/../src/main.c:52
+    u32 start = TIM3->CTVAL;
+10100344:	400106b7          	lui	a3,0x40010
+BuzLed_Self_Excited():
+E:\work\project\bootloader\Debug/../src/main.c:133
+	ANAC_POWER_ON();
+10100348:	08076713          	ori	a4,a4,128
+1010034c:	c0e7ae23          	sw	a4,-996(a5)
+DelayNus():
+E:\work\project\bootloader\Debug/../src/main.c:52
+    u32 start = TIM3->CTVAL;
+10100350:	5a98                	lw	a4,48(a3)
+E:\work\project\bootloader\Debug/../src/main.c:53
+    while((start -(int)TIM3->CTVAL) < delay) __asm("NOP");
+10100352:	5a9c                	lw	a5,48(a3)
+10100354:	04500693          	li	a3,69
+10100358:	40f707b3          	sub	a5,a4,a5
+1010035c:	00f6ea63          	bltu	a3,a5,10100370 <Fault_Display+0xa4>
+10100360:	40010637          	lui	a2,0x40010
+10100364:	0001                	nop
+10100366:	5a1c                	lw	a5,48(a2)
+10100368:	40f707b3          	sub	a5,a4,a5
+1010036c:	fef6fce3          	bgeu	a3,a5,10100364 <Fault_Display+0x98>
+DCDC_OutVolt():
+E:\work\project\bootloader\Debug/../src/main.c:69
+    ANAC->DC_CFG &= ~ANAC_DCBZ_CFG_DCDC_DISCH;
+10100370:	400127b7          	lui	a5,0x40012
+10100374:	c0c7a703          	lw	a4,-1012(a5) # 40011c0c <_sp+0x2000f40c>
+10100378:	76fd                	lui	a3,0xfffff
+1010037a:	7ff68693          	addi	a3,a3,2047 # fffff7ff <_sp+0xdfffcfff>
+1010037e:	8f75                	and	a4,a4,a3
+10100380:	c0e7a623          	sw	a4,-1012(a5)
+E:\work\project\bootloader\Debug/../src/main.c:70
+	ANAC->DC_CFG &= ~(BITS(3, 4));
+10100384:	c0c7a703          	lw	a4,-1012(a5)
+E:\work\project\bootloader\Debug/../src/main.c:71
+    ANAC->DC_CFG |= ANAC_DCBZ_CFG_BZ_MSEL | vol;
+10100388:	000205b7          	lui	a1,0x20
+1010038c:	05c1                	addi	a1,a1,16
+E:\work\project\bootloader\Debug/../src/main.c:70
+	ANAC->DC_CFG &= ~(BITS(3, 4));
+1010038e:	9b1d                	andi	a4,a4,-25
+10100390:	c0e7a623          	sw	a4,-1012(a5)
+E:\work\project\bootloader\Debug/../src/main.c:71
+    ANAC->DC_CFG |= ANAC_DCBZ_CFG_BZ_MSEL | vol;
+10100394:	c0c7a603          	lw	a2,-1012(a5)
+E:\work\project\bootloader\Debug/../src/main.c:74
+		ANAC->DC_CFG |= BIT(0);
+10100398:	400126b7          	lui	a3,0x40012
+DelayNus():
+E:\work\project\bootloader\Debug/../src/main.c:52
+    u32 start = TIM3->CTVAL;
+1010039c:	40010737          	lui	a4,0x40010
+DCDC_OutVolt():
+E:\work\project\bootloader\Debug/../src/main.c:71
+    ANAC->DC_CFG |= ANAC_DCBZ_CFG_BZ_MSEL | vol;
+101003a0:	8e4d                	or	a2,a2,a1
+101003a2:	c0c7a623          	sw	a2,-1012(a5)
+E:\work\project\bootloader\Debug/../src/main.c:80
+    		while((start -(int)TIM3->CTVAL) < 50)
+101003a6:	03100513          	li	a0,49
+DelayNus():
+E:\work\project\bootloader\Debug/../src/main.c:53
+    while((start -(int)TIM3->CTVAL) < delay) __asm("NOP");
+101003aa:	464d                	li	a2,19
+101003ac:	45a5                	li	a1,9
+DCDC_OutVolt():
+E:\work\project\bootloader\Debug/../src/main.c:74
+		ANAC->DC_CFG |= BIT(0);
+101003ae:	c0c6a783          	lw	a5,-1012(a3) # 40011c0c <_sp+0x2000f40c>
+101003b2:	0017e793          	ori	a5,a5,1
+101003b6:	c0f6a623          	sw	a5,-1012(a3)
+DelayNus():
+E:\work\project\bootloader\Debug/../src/main.c:52
+    u32 start = TIM3->CTVAL;
+101003ba:	03072303          	lw	t1,48(a4) # 40010030 <_sp+0x2000d830>
+E:\work\project\bootloader\Debug/../src/main.c:53
+    while((start -(int)TIM3->CTVAL) < delay) __asm("NOP");
+101003be:	5b1c                	lw	a5,48(a4)
+101003c0:	40f307b3          	sub	a5,t1,a5
+101003c4:	00f66863          	bltu	a2,a5,101003d4 <Fault_Display+0x108>
+101003c8:	0001                	nop
+101003ca:	5b1c                	lw	a5,48(a4)
+101003cc:	40f307b3          	sub	a5,t1,a5
+101003d0:	fef67ce3          	bgeu	a2,a5,101003c8 <Fault_Display+0xfc>
+DCDC_OutVolt():
+E:\work\project\bootloader\Debug/../src/main.c:76
+		if(ANAC->ANAC_FLAG & ANAC_ANAC_FLAG_DCDC_VOK)
+101003d4:	c506a783          	lw	a5,-944(a3)
+101003d8:	1007f793          	andi	a5,a5,256
+101003dc:	14078a63          	beqz	a5,10100530 <Fault_Display+0x264>
+E:\work\project\bootloader\Debug/../src/main.c:79
+			u32 start = TIM3->CTVAL;
+101003e0:	03072303          	lw	t1,48(a4)
+E:\work\project\bootloader\Debug/../src/main.c:80
+    		while((start -(int)TIM3->CTVAL) < 50)
+101003e4:	a039                	j	101003f2 <Fault_Display+0x126>
+E:\work\project\bootloader\Debug/../src/main.c:82
+				if(!(ANAC->ANAC_FLAG & ANAC_ANAC_FLAG_DCDC_VOK))
+101003e6:	0502a783          	lw	a5,80(t0)
+101003ea:	1007f793          	andi	a5,a5,256
+101003ee:	14078163          	beqz	a5,10100530 <Fault_Display+0x264>
+E:\work\project\bootloader\Debug/../src/main.c:80
+    		while((start -(int)TIM3->CTVAL) < 50)
+101003f2:	5b1c                	lw	a5,48(a4)
+E:\work\project\bootloader\Debug/../src/main.c:82
+				if(!(ANAC->ANAC_FLAG & ANAC_ANAC_FLAG_DCDC_VOK))
+101003f4:	c0068293          	addi	t0,a3,-1024
+E:\work\project\bootloader\Debug/../src/main.c:80
+    		while((start -(int)TIM3->CTVAL) < 50)
+101003f8:	40f307b3          	sub	a5,t1,a5
+101003fc:	fef575e3          	bgeu	a0,a5,101003e6 <Fault_Display+0x11a>
+BuzLed_Self_Excited():
+E:\work\project\bootloader\Debug/../src/main.c:137
+	TIMERS->CON &= ~(TIM_CON_TE_TIM4 | TIM_CON_PWM_TIM4);
+10100400:	0a072783          	lw	a5,160(a4)
+10100404:	76e1                	lui	a3,0xffff8
+10100406:	16dd                	addi	a3,a3,-9
+10100408:	8ff5                	and	a5,a5,a3
+1010040a:	0af72023          	sw	a5,160(a4)
+E:\work\project\bootloader\Debug/../src/main.c:138
+	TIM4->PWCON |= (1 << 17);
+1010040e:	473c                	lw	a5,72(a4)
+10100410:	000206b7          	lui	a3,0x20
+Fault_Display():
+E:\work\project\bootloader\Debug/../src/main.c:249
+		LED_ON(LED_GREEN | LED_RED);
+10100414:	650d                	lui	a0,0x3
+BuzLed_Self_Excited():
+E:\work\project\bootloader\Debug/../src/main.c:138
+	TIM4->PWCON |= (1 << 17);
+10100416:	8fd5                	or	a5,a5,a3
+10100418:	c73c                	sw	a5,72(a4)
+E:\work\project\bootloader\Debug/../src/main.c:139
+	ANAC->DC_CFG &= ~ANAC_DCBZ_CFG_BZ_MSEL;
+1010041a:	400127b7          	lui	a5,0x40012
+1010041e:	c0c7a703          	lw	a4,-1012(a5) # 40011c0c <_sp+0x2000f40c>
+10100422:	7681                	lui	a3,0xfffe0
+10100424:	16fd                	addi	a3,a3,-1
+10100426:	8f75                	and	a4,a4,a3
+10100428:	c0e7a623          	sw	a4,-1012(a5)
+E:\work\project\bootloader\Debug/../src/main.c:140
+	ANAC->DC_CFG |= ANAC_DCBZ_CFG_BZ_EN;
+1010042c:	c0c7a703          	lw	a4,-1012(a5)
+10100430:	66c1                	lui	a3,0x10
+10100432:	8f55                	or	a4,a4,a3
+10100434:	c0e7a623          	sw	a4,-1012(a5)
+Fault_Display():
+E:\work\project\bootloader\Debug/../src/main.c:249
+		LED_ON(LED_GREEN | LED_RED);
+10100438:	107000ef          	jal	ra,10100d3e <GPIO_SetPin>
+delay_ms():
+E:\work\project\bootloader\Debug/../src/main.c:222
+	for (volatile u16 j=0; j < n; j++)
+1010043c:	00011223          	sh	zero,4(sp)
+10100440:	00415783          	lhu	a5,4(sp)
+10100444:	06300613          	li	a2,99
+delay_1ms():
+E:\work\project\bootloader\Debug/../src/main.c:209
+	for (i=0;i<714;i++)
+10100448:	2c900713          	li	a4,713
+delay_ms():
+E:\work\project\bootloader\Debug/../src/main.c:222
+	for (volatile u16 j=0; j < n; j++)
+1010044c:	06300693          	li	a3,99
+10100450:	02f66f63          	bltu	a2,a5,1010048e <Fault_Display+0x1c2>
+delay_1ms():
+E:\work\project\bootloader\Debug/../src/main.c:209
+	for (i=0;i<714;i++)
+10100454:	00011323          	sh	zero,6(sp)
+10100458:	00615783          	lhu	a5,6(sp)
+1010045c:	00f76e63          	bltu	a4,a5,10100478 <Fault_Display+0x1ac>
+E:\work\project\bootloader\Debug/../src/main.c:211
+		asm("nop");
+10100460:	0001                	nop
+E:\work\project\bootloader\Debug/../src/main.c:209
+	for (i=0;i<714;i++)
+10100462:	00615783          	lhu	a5,6(sp)
+10100466:	0785                	addi	a5,a5,1
+10100468:	07c2                	slli	a5,a5,0x10
+1010046a:	83c1                	srli	a5,a5,0x10
+1010046c:	00f11323          	sh	a5,6(sp)
+10100470:	00615783          	lhu	a5,6(sp)
+10100474:	fef776e3          	bgeu	a4,a5,10100460 <Fault_Display+0x194>
+delay_ms():
+E:\work\project\bootloader\Debug/../src/main.c:222
+	for (volatile u16 j=0; j < n; j++)
+10100478:	00415783          	lhu	a5,4(sp)
+1010047c:	0785                	addi	a5,a5,1
+1010047e:	07c2                	slli	a5,a5,0x10
+10100480:	83c1                	srli	a5,a5,0x10
+10100482:	00f11223          	sh	a5,4(sp)
+10100486:	00415783          	lhu	a5,4(sp)
+1010048a:	fcf6f5e3          	bgeu	a3,a5,10100454 <Fault_Display+0x188>
+BuzLed_Pwm_Off():
+E:\work\project\bootloader\Debug/../src/main.c:147
+	ANAC->DC_CFG &= ~ANAC_DCBZ_CFG_BZ_EN;
+1010048e:	400127b7          	lui	a5,0x40012
+10100492:	c0c7a703          	lw	a4,-1012(a5) # 40011c0c <_sp+0x2000f40c>
+10100496:	76c1                	lui	a3,0xffff0
+10100498:	16fd                	addi	a3,a3,-1
+1010049a:	8f75                	and	a4,a4,a3
+1010049c:	c0e7a623          	sw	a4,-1012(a5)
+E:\work\project\bootloader\Debug/../src/main.c:148
+	TIMERS->CON &= ~(TIM_CON_TE_TIM4 | TIM_CON_PWM_TIM4);
+101004a0:	40010637          	lui	a2,0x40010
+101004a4:	0a062703          	lw	a4,160(a2) # 400100a0 <_sp+0x2000d8a0>
+101004a8:	76e1                	lui	a3,0xffff8
+101004aa:	16dd                	addi	a3,a3,-9
+101004ac:	8f75                	and	a4,a4,a3
+101004ae:	0ae62023          	sw	a4,160(a2)
+E:\work\project\bootloader\Debug/../src/main.c:150
+	ANAC->DC_CFG &= ~ANAC_DCBZ_CFG_DCDC_EN;
+101004b2:	c0c7a703          	lw	a4,-1012(a5)
+Fault_Display():
+E:\work\project\bootloader\Debug/../src/main.c:252
+		LED_OFF(LED_GREEN | LED_RED);
+101004b6:	650d                	lui	a0,0x3
+BuzLed_Pwm_Off():
+E:\work\project\bootloader\Debug/../src/main.c:150
+	ANAC->DC_CFG &= ~ANAC_DCBZ_CFG_DCDC_EN;
+101004b8:	9b79                	andi	a4,a4,-2
+101004ba:	c0e7a623          	sw	a4,-1012(a5)
+E:\work\project\bootloader\Debug/../src/main.c:151
+	ANAC_POWER_OFF();
+101004be:	6729                	lui	a4,0xa
+101004c0:	c487ac23          	sw	s0,-936(a5)
+101004c4:	5a570713          	addi	a4,a4,1445 # a5a5 <__stack_size+0x9da5>
+101004c8:	c4e7ac23          	sw	a4,-936(a5)
+101004cc:	c1c7a703          	lw	a4,-996(a5)
+101004d0:	f3f77713          	andi	a4,a4,-193
+101004d4:	c0e7ae23          	sw	a4,-996(a5)
+Fault_Display():
+E:\work\project\bootloader\Debug/../src/main.c:252
+		LED_OFF(LED_GREEN | LED_RED);
+101004d8:	077000ef          	jal	ra,10100d4e <GPIO_ClrPin>
+delay_ms():
+E:\work\project\bootloader\Debug/../src/main.c:222
+	for (volatile u16 j=0; j < n; j++)
+101004dc:	00011023          	sh	zero,0(sp)
+101004e0:	00015783          	lhu	a5,0(sp)
+101004e4:	7cf00713          	li	a4,1999
+101004e8:	def768e3          	bltu	a4,a5,101002d8 <Fault_Display+0xc>
+delay_1ms():
+E:\work\project\bootloader\Debug/../src/main.c:209
+	for (i=0;i<714;i++)
+101004ec:	2c900713          	li	a4,713
+delay_ms():
+E:\work\project\bootloader\Debug/../src/main.c:222
+	for (volatile u16 j=0; j < n; j++)
+101004f0:	7cf00693          	li	a3,1999
+delay_1ms():
+E:\work\project\bootloader\Debug/../src/main.c:209
+	for (i=0;i<714;i++)
+101004f4:	00011123          	sh	zero,2(sp)
+101004f8:	00215783          	lhu	a5,2(sp)
+101004fc:	00f76e63          	bltu	a4,a5,10100518 <Fault_Display+0x24c>
+E:\work\project\bootloader\Debug/../src/main.c:211
+		asm("nop");
+10100500:	0001                	nop
+E:\work\project\bootloader\Debug/../src/main.c:209
+	for (i=0;i<714;i++)
+10100502:	00215783          	lhu	a5,2(sp)
+10100506:	0785                	addi	a5,a5,1
+10100508:	07c2                	slli	a5,a5,0x10
+1010050a:	83c1                	srli	a5,a5,0x10
+1010050c:	00f11123          	sh	a5,2(sp)
+10100510:	00215783          	lhu	a5,2(sp)
+10100514:	fef776e3          	bgeu	a4,a5,10100500 <Fault_Display+0x234>
+delay_ms():
+E:\work\project\bootloader\Debug/../src/main.c:222
+	for (volatile u16 j=0; j < n; j++)
+10100518:	00015783          	lhu	a5,0(sp)
+1010051c:	0785                	addi	a5,a5,1
+1010051e:	07c2                	slli	a5,a5,0x10
+10100520:	83c1                	srli	a5,a5,0x10
+10100522:	00f11023          	sh	a5,0(sp)
+10100526:	00015783          	lhu	a5,0(sp)
+1010052a:	fcf6f5e3          	bgeu	a3,a5,101004f4 <Fault_Display+0x228>
+1010052e:	b36d                	j	101002d8 <Fault_Display+0xc>
+DCDC_OutVolt():
+E:\work\project\bootloader\Debug/../src/main.c:92
+		ANAC->DC_CFG &= ~(BIT(0));//关闭DC-DC
+10100530:	c0c6a783          	lw	a5,-1012(a3) # ffff7c0c <_sp+0xdfff540c>
+10100534:	9bf9                	andi	a5,a5,-2
+10100536:	c0f6a623          	sw	a5,-1012(a3)
+DelayNus():
+E:\work\project\bootloader\Debug/../src/main.c:52
+    u32 start = TIM3->CTVAL;
+1010053a:	03072303          	lw	t1,48(a4)
+E:\work\project\bootloader\Debug/../src/main.c:53
+    while((start -(int)TIM3->CTVAL) < delay) __asm("NOP");
+1010053e:	5b1c                	lw	a5,48(a4)
+10100540:	40f307b3          	sub	a5,t1,a5
+10100544:	e6f5e5e3          	bltu	a1,a5,101003ae <Fault_Display+0xe2>
+10100548:	0001                	nop
+1010054a:	5b1c                	lw	a5,48(a4)
+1010054c:	40f307b3          	sub	a5,t1,a5
+10100550:	fef5fce3          	bgeu	a1,a5,10100548 <Fault_Display+0x27c>
+10100554:	bda9                	j	101003ae <Fault_Display+0xe2>
+
+10100556 <_exit>:
+_exit():
+E:\work\project\bootloader\Debug/../FDV32S300/stubs/_exit.c:15 (discriminator 1)
+    //   write(STDERR_FILENO, message, sizeof(message) - 1);
+    //   write_hex(STDERR_FILENO, code);
+    //   write(STDERR_FILENO, "\n", 1);
+
+    for (;;)
+        ;
+10100556:	a001                	j	10100556 <_exit>
+
+10100558 <trap_entry>:
+trap_entry():
+E:\work\project\bootloader\Debug/../FDV32S300/env/entry.S:46
+
+  .section      .text.entry
+  .align 2
+  .global trap_entry
+trap_entry:
+  TRAP_ENTRY
+10100558:	7139                	addi	sp,sp,-64
+1010055a:	c006                	sw	ra,0(sp)
+1010055c:	c216                	sw	t0,4(sp)
+1010055e:	c41a                	sw	t1,8(sp)
+10100560:	c61e                	sw	t2,12(sp)
+10100562:	c82a                	sw	a0,16(sp)
+10100564:	ca2e                	sw	a1,20(sp)
+10100566:	cc32                	sw	a2,24(sp)
+10100568:	ce36                	sw	a3,28(sp)
+1010056a:	d03a                	sw	a4,32(sp)
+1010056c:	d23e                	sw	a5,36(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/env/entry.S:48
+
+  csrr a0, mcause
+1010056e:	34202573          	csrr	a0,mcause
+E:\work\project\bootloader\Debug/../FDV32S300/env/entry.S:49
+  csrr a1, mepc
+10100572:	341025f3          	csrr	a1,mepc
+E:\work\project\bootloader\Debug/../FDV32S300/env/entry.S:50
+  call handle_trap
+10100576:	287d                	jal	10100634 <handle_trap>
+E:\work\project\bootloader\Debug/../FDV32S300/env/entry.S:53
+
+
+  csrw mepc, a0
+10100578:	34151073          	csrw	mepc,a0
+E:\work\project\bootloader\Debug/../FDV32S300/env/entry.S:54
+  TRAP_EXIT
+1010057c:	4082                	lw	ra,0(sp)
+1010057e:	4292                	lw	t0,4(sp)
+10100580:	4322                	lw	t1,8(sp)
+10100582:	43b2                	lw	t2,12(sp)
+10100584:	4542                	lw	a0,16(sp)
+10100586:	45d2                	lw	a1,20(sp)
+10100588:	4662                	lw	a2,24(sp)
+1010058a:	46f2                	lw	a3,28(sp)
+1010058c:	5702                	lw	a4,32(sp)
+1010058e:	5792                	lw	a5,36(sp)
+10100590:	6121                	addi	sp,sp,64
+10100592:	30200073          	mret
+E:\work\project\bootloader\Debug/../FDV32S300/env/entry.S:60
+
+
+.weak handle_trap
+handle_trap:
+1:
+  j 1b
+10100596:	a001                	j	10100596 <trap_entry+0x3e>
+
+10100598 <MSOFT_IntHandler>:
+MSOFT_IntHandler():
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:17
+#include <stdio.h>
+#include "phnx02.h"
+
+extern unsigned int SystemCoreClock;
+
+__attribute__((weak)) void MSOFT_IntHandler(void){};
+10100598:	8082                	ret
+
+1010059a <MEXP_Handler>:
+MEXP_Handler():
+1010059a:	8082                	ret
+
+1010059c <NMI_Handler>:
+NMI_Handler():
+1010059c:	8082                	ret
+
+1010059e <PMU_IrqHandler>:
+PMU_IrqHandler():
+1010059e:	8082                	ret
+
+101005a0 <LPT_IrqHandler>:
+LPT_IrqHandler():
+101005a0:	8082                	ret
+
+101005a2 <TIMER1_IrqHandler>:
+TIMER1_IrqHandler():
+101005a2:	8082                	ret
+
+101005a4 <TIMER2_IrqHandler>:
+TIMER2_IrqHandler():
+101005a4:	8082                	ret
+
+101005a6 <TIMER3_IrqHandler>:
+TIMER3_IrqHandler():
+101005a6:	8082                	ret
+
+101005a8 <TIMER4_IrqHandler>:
+TIMER4_IrqHandler():
+101005a8:	8082                	ret
+
+101005aa <UART1_IrqHandler>:
+UART1_IrqHandler():
+101005aa:	8082                	ret
+
+101005ac <UART2_IrqHandler>:
+UART2_IrqHandler():
+101005ac:	8082                	ret
+
+101005ae <SPI_IrqHandler>:
+SPI_IrqHandler():
+101005ae:	8082                	ret
+
+101005b0 <ANAC_IrqHandler>:
+ANAC_IrqHandler():
+101005b0:	8082                	ret
+
+101005b2 <EFC_IrqHandler>:
+EFC_IrqHandler():
+101005b2:	8082                	ret
+
+101005b4 <IOM_IrqHandler>:
+IOM_IrqHandler():
+101005b4:	8082                	ret
+
+101005b6 <I2C_IrqHandler>:
+I2C_IrqHandler():
+101005b6:	8082                	ret
+
+101005b8 <RTC_IrqHandler>:
+RTC_IrqHandler():
+101005b8:	8082                	ret
+
+101005ba <TWC_IrqHandler>:
+TWC_IrqHandler():
+101005ba:	8082                	ret
+
+101005bc <LPU_IrqHandler>:
+LPU_IrqHandler():
+101005bc:	8082                	ret
+
+101005be <MEXT_IntHandler>:
+MEXT_IntHandler():
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:39
+__attribute__((weak)) void I2C_IrqHandler(void){};
+__attribute__((weak)) void RTC_IrqHandler(void){};
+__attribute__((weak)) void TWC_IrqHandler(void){};
+__attribute__((weak)) void LPU_IrqHandler(void){};
+
+void MEXT_IntHandler(void) {
+101005be:	1151                	addi	sp,sp,-12
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:41
+    u32 src;
+    src = PLIC_GetCLAIM();
+101005c0:	e00107b7          	lui	a5,0xe0010
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:39
+void MEXT_IntHandler(void) {
+101005c4:	c222                	sw	s0,4(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:41
+    src = PLIC_GetCLAIM();
+101005c6:	3047a403          	lw	s0,772(a5) # e0010304 <_sp+0xc000db04>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:39
+void MEXT_IntHandler(void) {
+101005ca:	c406                	sw	ra,8(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:42
+    switch (src) {
+101005cc:	47c1                	li	a5,16
+101005ce:	0087ed63          	bltu	a5,s0,101005e8 <MEXT_IntHandler+0x2a>
+101005d2:	0ff00697          	auipc	a3,0xff00
+101005d6:	a2e68693          	addi	a3,a3,-1490 # 20000000 <_data>
+101005da:	00241713          	slli	a4,s0,0x2
+101005de:	9736                	add	a4,a4,a3
+101005e0:	431c                	lw	a5,0(a4)
+101005e2:	97b6                	add	a5,a5,a3
+101005e4:	8782                	jr	a5
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:44
+    case (PMU_IRQn): {
+        PMU_IrqHandler();
+101005e6:	3f65                	jal	1010059e <PMU_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:110
+        break;
+    }
+    default:
+        break;
+    }
+    PLIC_SetCLAIM(src);
+101005e8:	e00107b7          	lui	a5,0xe0010
+101005ec:	3087a223          	sw	s0,772(a5) # e0010304 <_sp+0xc000db04>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:111
+};
+101005f0:	40a2                	lw	ra,8(sp)
+101005f2:	4412                	lw	s0,4(sp)
+101005f4:	0131                	addi	sp,sp,12
+101005f6:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:104
+        LPU_IrqHandler();
+101005f8:	37d1                	jal	101005bc <LPU_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:105
+        break;
+101005fa:	b7fd                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:48
+        LPT_IrqHandler();
+101005fc:	3755                	jal	101005a0 <LPT_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:49
+        break;
+101005fe:	b7ed                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:52
+        TIMER1_IrqHandler();
+10100600:	374d                	jal	101005a2 <TIMER1_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:53
+        break;
+10100602:	b7dd                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:56
+        TIMER2_IrqHandler();
+10100604:	3745                	jal	101005a4 <TIMER2_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:57
+        break;
+10100606:	b7cd                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:60
+        TIMER3_IrqHandler();
+10100608:	3f79                	jal	101005a6 <TIMER3_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:61
+        break;
+1010060a:	bff9                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:64
+        TIMER4_IrqHandler();
+1010060c:	3f71                	jal	101005a8 <TIMER4_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:65
+        break;
+1010060e:	bfe9                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:68
+        UART1_IrqHandler();
+10100610:	3f69                	jal	101005aa <UART1_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:69
+        break;
+10100612:	bfd9                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:72
+        UART2_IrqHandler();
+10100614:	3f61                	jal	101005ac <UART2_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:73
+        break;
+10100616:	bfc9                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:76
+        SPI_IrqHandler();
+10100618:	3f59                	jal	101005ae <SPI_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:77
+        break;
+1010061a:	b7f9                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:80
+        ANAC_IrqHandler();
+1010061c:	3f51                	jal	101005b0 <ANAC_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:81
+        break;
+1010061e:	b7e9                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:84
+        EFC_IrqHandler();
+10100620:	3f49                	jal	101005b2 <EFC_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:85
+        break;
+10100622:	b7d9                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:88
+        IOM_IrqHandler();
+10100624:	3f41                	jal	101005b4 <IOM_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:89
+        break;
+10100626:	b7c9                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:92
+        I2C_IrqHandler();
+10100628:	3779                	jal	101005b6 <I2C_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:93
+        break;
+1010062a:	bf7d                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:96
+        RTC_IrqHandler();
+1010062c:	3771                	jal	101005b8 <RTC_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:97
+        break;
+1010062e:	bf6d                	j	101005e8 <MEXT_IntHandler+0x2a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:100
+        TWC_IrqHandler();
+10100630:	3769                	jal	101005ba <TWC_IrqHandler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:101
+        break;
+10100632:	bf5d                	j	101005e8 <MEXT_IntHandler+0x2a>
+
+10100634 <handle_trap>:
+handle_trap():
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:113
+
+unsigned int handle_trap(unsigned int mcause, unsigned int epc) {
+10100634:	1151                	addi	sp,sp,-12
+10100636:	c222                	sw	s0,4(sp)
+10100638:	c406                	sw	ra,8(sp)
+1010063a:	842e                	mv	s0,a1
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:115
+    // External Machine-Level interrupt from PLIC
+    if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE) == EXP_M_EXT_INT)) {
+1010063c:	00054b63          	bltz	a0,10100652 <handle_trap+0x1e>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:123
+               ((mcause & MCAUSE_CAUSE) == EXP_M_SOFT_INT)) {
+        MSOFT_IntHandler();
+        // } else if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE) ==
+        // EXP_M_TIM_INT)){
+        //     MTIM_IntHandler();
+    } else if (mcause == 0x1e) {
+10100640:	47f9                	li	a5,30
+10100642:	02f51163          	bne	a0,a5,10100664 <handle_trap+0x30>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:124
+        NMI_Handler();
+10100646:	3f99                	jal	1010059c <NMI_Handler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:131
+        MEXP_Handler();
+        while (1) {
+        };
+    }
+    return epc;
+}
+10100648:	8522                	mv	a0,s0
+1010064a:	40a2                	lw	ra,8(sp)
+1010064c:	4412                	lw	s0,4(sp)
+1010064e:	0131                	addi	sp,sp,12
+10100650:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:115 (discriminator 1)
+    if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE) == EXP_M_EXT_INT)) {
+10100652:	00151793          	slli	a5,a0,0x1
+10100656:	8385                	srli	a5,a5,0x1
+10100658:	472d                	li	a4,11
+1010065a:	00e78763          	beq	a5,a4,10100668 <handle_trap+0x34>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:117 (discriminator 1)
+    } else if ((mcause & MCAUSE_INT) &&
+1010065e:	470d                	li	a4,3
+10100660:	00e78663          	beq	a5,a4,1010066c <handle_trap+0x38>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:126
+        MEXP_Handler();
+10100664:	3f1d                	jal	1010059a <MEXP_Handler>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:128 (discriminator 1)
+        };
+10100666:	a001                	j	10100666 <handle_trap+0x32>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:116
+        MEXT_IntHandler();
+10100668:	3f99                	jal	101005be <MEXT_IntHandler>
+1010066a:	bff9                	j	10100648 <handle_trap+0x14>
+E:\work\project\bootloader\Debug/../FDV32S300/env/init.c:119
+        MSOFT_IntHandler();
+1010066c:	3735                	jal	10100598 <MSOFT_IntHandler>
+1010066e:	bfe9                	j	10100648 <handle_trap+0x14>
+
+10100670 <SystemCoreClockUpdate>:
+SystemCoreClockUpdate():
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:118
+    EnableExtIRQ();
+}
+
+void SystemCoreClockUpdate(void) {
+    unsigned int dwTmp;
+    int clkSrc = (SYSC->CLKCTRCFG & SYSC_CLKCTRCFG_SYS_CLK_SEL);
+10100670:	400017b7          	lui	a5,0x40001
+10100674:	439c                	lw	a5,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:119
+    if (clkSrc == SYSC_CLKCTRCFG_SYS_CLK_SEL_XTH)
+10100676:	02000713          	li	a4,32
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:118
+    int clkSrc = (SYSC->CLKCTRCFG & SYSC_CLKCTRCFG_SYS_CLK_SEL);
+1010067a:	0307f793          	andi	a5,a5,48
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:119
+    if (clkSrc == SYSC_CLKCTRCFG_SYS_CLK_SEL_XTH)
+1010067e:	04e78663          	beq	a5,a4,101006ca <SystemCoreClockUpdate+0x5a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:121
+        SystemCoreClock = XTH_FREQ;
+    else if (clkSrc == SYSC_CLKCTRCFG_SYS_CLK_SEL_XTL)
+10100682:	03000713          	li	a4,48
+10100686:	02e78c63          	beq	a5,a4,101006be <SystemCoreClockUpdate+0x4e>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:123
+        SystemCoreClock = XTL_FREQ;
+    else if (clkSrc == SYSC_CLKCTRCFG_SYS_CLK_SEL_LRC)
+1010068a:	4741                	li	a4,16
+1010068c:	06e78163          	beq	a5,a4,101006ee <SystemCoreClockUpdate+0x7e>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:126
+        SystemCoreClock = 8000;
+    else {
+        dwTmp = ANAC->CLK_CFG & ANAC_CLK_CFG_HRC_FSEL;
+10100690:	400127b7          	lui	a5,0x40012
+10100694:	c0078793          	addi	a5,a5,-1024 # 40011c00 <_sp+0x2000f400>
+10100698:	53dc                	lw	a5,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:127
+        if ((dwTmp >> 2) == 1)
+1010069a:	4705                	li	a4,1
+1010069c:	8389                	srli	a5,a5,0x2
+1010069e:	8b9d                	andi	a5,a5,7
+101006a0:	02e78e63          	beq	a5,a4,101006dc <SystemCoreClockUpdate+0x6c>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:129
+            SystemCoreClock = 1000000;
+        else if ((dwTmp >> 2) == 2)
+101006a4:	4709                	li	a4,2
+101006a6:	04e78c63          	beq	a5,a4,101006fe <SystemCoreClockUpdate+0x8e>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:131
+            SystemCoreClock = 2000000;
+        else if ((dwTmp >> 2) == 3)
+101006aa:	470d                	li	a4,3
+101006ac:	06e78b63          	beq	a5,a4,10100722 <SystemCoreClockUpdate+0xb2>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:133
+            SystemCoreClock = 4000000;
+        else if ((dwTmp >> 2) == 4)
+101006b0:	4711                	li	a4,4
+101006b2:	00e78c63          	beq	a5,a4,101006ca <SystemCoreClockUpdate+0x5a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:135
+            SystemCoreClock = 8000000;
+        else if ((dwTmp >> 2) == 5)
+101006b6:	4715                	li	a4,5
+101006b8:	04e78c63          	beq	a5,a4,10100710 <SystemCoreClockUpdate+0xa0>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:142
+        //	else if((dwTmp >> 2) == 6)
+        //		SystemCoreClock= 24000000;
+        // else if((dwTmp >> 2) == 7)
+        // 	SystemCoreClock= 32000000;
+    }
+}
+101006bc:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:122
+        SystemCoreClock = XTL_FREQ;
+101006be:	67a1                	lui	a5,0x8
+101006c0:	0ff00717          	auipc	a4,0xff00
+101006c4:	9ef72423          	sw	a5,-1560(a4) # 200000a8 <SystemCoreClock>
+101006c8:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:120
+        SystemCoreClock = XTH_FREQ;
+101006ca:	007a17b7          	lui	a5,0x7a1
+101006ce:	20078793          	addi	a5,a5,512 # 7a1200 <__stack_size+0x7a0a00>
+101006d2:	0ff00717          	auipc	a4,0xff00
+101006d6:	9cf72b23          	sw	a5,-1578(a4) # 200000a8 <SystemCoreClock>
+101006da:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:128
+            SystemCoreClock = 1000000;
+101006dc:	000f47b7          	lui	a5,0xf4
+101006e0:	24078793          	addi	a5,a5,576 # f4240 <__stack_size+0xf3a40>
+101006e4:	0ff00717          	auipc	a4,0xff00
+101006e8:	9cf72223          	sw	a5,-1596(a4) # 200000a8 <SystemCoreClock>
+101006ec:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:124
+        SystemCoreClock = 8000;
+101006ee:	6789                	lui	a5,0x2
+101006f0:	f4078793          	addi	a5,a5,-192 # 1f40 <__stack_size+0x1740>
+101006f4:	0ff00717          	auipc	a4,0xff00
+101006f8:	9af72a23          	sw	a5,-1612(a4) # 200000a8 <SystemCoreClock>
+101006fc:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:130
+            SystemCoreClock = 2000000;
+101006fe:	001e87b7          	lui	a5,0x1e8
+10100702:	48078793          	addi	a5,a5,1152 # 1e8480 <__stack_size+0x1e7c80>
+10100706:	0ff00717          	auipc	a4,0xff00
+1010070a:	9af72123          	sw	a5,-1630(a4) # 200000a8 <SystemCoreClock>
+1010070e:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:136
+            SystemCoreClock = 16000000;
+10100710:	00f427b7          	lui	a5,0xf42
+10100714:	40078793          	addi	a5,a5,1024 # f42400 <__stack_size+0xf41c00>
+10100718:	0ff00717          	auipc	a4,0xff00
+1010071c:	98f72823          	sw	a5,-1648(a4) # 200000a8 <SystemCoreClock>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:142
+}
+10100720:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:132
+            SystemCoreClock = 4000000;
+10100722:	003d17b7          	lui	a5,0x3d1
+10100726:	90078793          	addi	a5,a5,-1792 # 3d0900 <__stack_size+0x3d0100>
+1010072a:	0ff00717          	auipc	a4,0xff00
+1010072e:	96f72f23          	sw	a5,-1666(a4) # 200000a8 <SystemCoreClock>
+10100732:	8082                	ret
+
+10100734 <SystemInit>:
+SystemInit():
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:83
+    SYSC_CLKENCFG_REG |= SYSC_CLKENCFG_ANAC;
+10100734:	400017b7          	lui	a5,0x40001
+10100738:	4798                	lw	a4,8(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:29
+void SystemInit(void) {
+1010073a:	1151                	addi	sp,sp,-12
+1010073c:	c222                	sw	s0,4(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:83
+    SYSC_CLKENCFG_REG |= SYSC_CLKENCFG_ANAC;
+1010073e:	6405                	lui	s0,0x1
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:29
+void SystemInit(void) {
+10100740:	c406                	sw	ra,8(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:83
+    SYSC_CLKENCFG_REG |= SYSC_CLKENCFG_ANAC;
+10100742:	8f41                	or	a4,a4,s0
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:84
+    ANAC_WPROT_REG = ANAC_WPROT_V0;
+10100744:	6699                	lui	a3,0x6
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:83
+    SYSC_CLKENCFG_REG |= SYSC_CLKENCFG_ANAC;
+10100746:	c798                	sw	a4,8(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:84
+    ANAC_WPROT_REG = ANAC_WPROT_V0;
+10100748:	40012637          	lui	a2,0x40012
+1010074c:	a5a68693          	addi	a3,a3,-1446 # 5a5a <__stack_size+0x525a>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:85
+    ANAC_WPROT_REG = ANAC_WPROT_V1;
+10100750:	6729                	lui	a4,0xa
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:84
+    ANAC_WPROT_REG = ANAC_WPROT_V0;
+10100752:	c4d62c23          	sw	a3,-936(a2) # 40011c58 <_sp+0x2000f458>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:85
+    ANAC_WPROT_REG = ANAC_WPROT_V1;
+10100756:	5a570713          	addi	a4,a4,1445 # a5a5 <__stack_size+0x9da5>
+1010075a:	c4e62c23          	sw	a4,-936(a2)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:86
+    ANAC->CLK_CFG &= ~ANAC_CLK_CFG_HRC_FSEL;
+1010075e:	c2462503          	lw	a0,-988(a2)
+10100762:	c0060593          	addi	a1,a2,-1024
+10100766:	990d                	andi	a0,a0,-29
+10100768:	c2a62223          	sw	a0,-988(a2)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:87
+    ANAC_WPROT_REG = ANAC_WPROT_V0;
+1010076c:	c4d62c23          	sw	a3,-936(a2)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:88
+    ANAC_WPROT_REG = ANAC_WPROT_V1;
+10100770:	c4e62c23          	sw	a4,-936(a2)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:89
+    ANAC->CLK_CFG |= (SYSC_CLK_SRC_SEL) << 2;
+10100774:	c2462603          	lw	a2,-988(a2)
+10100778:	01066613          	ori	a2,a2,16
+1010077c:	d1d0                	sw	a2,36(a1)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:90
+    SYSC_WRPROCFG_REG = SYSC_WRPROCFG_V0;
+1010077e:	c3d4                	sw	a3,4(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:91
+    SYSC_WRPROCFG_REG = SYSC_WRPROCFG_V1;
+10100780:	c3d8                	sw	a4,4(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:92
+    SYSC_CLKCTRCFG_REG &=
+10100782:	4390                	lw	a2,0(a5)
+10100784:	ff8085b7          	lui	a1,0xff808
+10100788:	0cf58593          	addi	a1,a1,207 # ff8080cf <_sp+0xdf8058cf>
+1010078c:	8e6d                	and	a2,a2,a1
+1010078e:	c390                	sw	a2,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:95
+    SYSC_WRPROCFG_REG = SYSC_WRPROCFG_V0;
+10100790:	c3d4                	sw	a3,4(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:96
+    SYSC_WRPROCFG_REG = SYSC_WRPROCFG_V1;
+10100792:	c3d8                	sw	a4,4(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:97
+    SYSC_CLKCTRCFG_REG |= (((SYSC_APB_DIV) << SYSC_CLKCTRCFG_APB_CLK_DIV_pos) |
+10100794:	4398                	lw	a4,0(a5)
+10100796:	c398                	sw	a4,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:101
+    SystemCoreClockUpdate();
+10100798:	3de1                	jal	10100670 <SystemCoreClockUpdate>
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:111
+    WRITE_CSR(mtvec, &trap_entry);
+1010079a:	00000797          	auipc	a5,0x0
+1010079e:	dbe78793          	addi	a5,a5,-578 # 10100558 <trap_entry>
+101007a2:	30579073          	csrw	mtvec,a5
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:112
+    EnableGlobleIRQ();
+101007a6:	300467f3          	csrrsi	a5,mstatus,8
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:113
+    EnableExtIRQ();
+101007aa:	80040413          	addi	s0,s0,-2048 # 800 <__stack_size>
+101007ae:	30442473          	csrrs	s0,mie,s0
+E:\work\project\bootloader\Debug/../FDV32S300/env/system_phnx02.c:114
+}
+101007b2:	40a2                	lw	ra,8(sp)
+101007b4:	4412                	lw	s0,4(sp)
+101007b6:	0131                	addi	sp,sp,12
+101007b8:	8082                	ret
+
+101007ba <EFC_Init>:
+EFC_Init():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:27
+/**
+ * @brief EFC init
+ *
+ * @return BOOL:TRUE , FALSE
+ */
+BOOL EFC_Init(void) {
+101007ba:	1151                	addi	sp,sp,-12
+101007bc:	c406                	sw	ra,8(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:28
+    SystemCoreClockUpdate();
+101007be:	3d4d                	jal	10100670 <SystemCoreClockUpdate>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:29
+    if (SystemCoreClock < 1000000) {
+101007c0:	0ff00797          	auipc	a5,0xff00
+101007c4:	8e878793          	addi	a5,a5,-1816 # 200000a8 <SystemCoreClock>
+101007c8:	439c                	lw	a5,0(a5)
+101007ca:	000f4737          	lui	a4,0xf4
+101007ce:	23f70693          	addi	a3,a4,575 # f423f <__stack_size+0xf3a3f>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:30
+        return FALSE;
+101007d2:	4501                	li	a0,0
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:29
+    if (SystemCoreClock < 1000000) {
+101007d4:	06f6fe63          	bgeu	a3,a5,10100850 <EFC_Init+0x96>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:32
+    }
+    if (SystemCoreClock == 1000000) {
+101007d8:	24070713          	addi	a4,a4,576
+101007dc:	06e78d63          	beq	a5,a4,10100856 <EFC_Init+0x9c>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:48
+        EFC->TPGS = 0x01; // 2us + 3*1 = 6us
+        EFC_WPT_UNLOCK();
+        EFC->TRCV = (0x4 << 16) | (0x1f << 9) | 0x79;
+        EFC_WPT_UNLOCK();
+        EFC->TERASE = (0x09 << 7) | 0x46;
+    } else if (SystemCoreClock == 2000000) {
+101007e0:	001e8737          	lui	a4,0x1e8
+101007e4:	48070713          	addi	a4,a4,1152 # 1e8480 <__stack_size+0x1e7c80>
+101007e8:	0ce78563          	beq	a5,a4,101008b2 <EFC_Init+0xf8>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:68
+        EFC->TERASE = (0x09 << 7) | 0x46;
+    } else {
+        EFC_WPT_UNLOCK();
+        EFC->CR &= ~(EFC_CR_PRG2MDIV | EFC_CR_ERS2KDIV);
+        EFC_WPT_UNLOCK();
+        EFC->CR |= ((SystemCoreClock / 2000000 - 1) << 16) | (0x3e7 << 22);
+101007ec:	02e7d733          	divu	a4,a5,a4
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:65
+        EFC_WPT_UNLOCK();
+101007f0:	0c300613          	li	a2,195
+101007f4:	400007b7          	lui	a5,0x40000
+101007f8:	cf90                	sw	a2,24(a5)
+101007fa:	03c00693          	li	a3,60
+101007fe:	cf94                	sw	a3,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:66
+        EFC->CR &= ~(EFC_CR_PRG2MDIV | EFC_CR_ERS2KDIV);
+10100800:	438c                	lw	a1,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:70
+        EFC_WPT_UNLOCK();
+        EFC->TNVS = 0x0e;
+10100802:	4339                	li	t1,14
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:80
+        EFC_WPT_UNLOCK();
+        EFC->TRCV = 0xcf1e0;
+        EFC_WPT_UNLOCK();
+        EFC->TERASE = 0x4c6;
+    }
+    return TRUE;
+10100804:	4505                	li	a0,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:66
+        EFC->CR &= ~(EFC_CR_PRG2MDIV | EFC_CR_ERS2KDIV);
+10100806:	05c2                	slli	a1,a1,0x10
+10100808:	81c1                	srli	a1,a1,0x10
+1010080a:	c38c                	sw	a1,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:67
+        EFC_WPT_UNLOCK();
+1010080c:	cf90                	sw	a2,24(a5)
+1010080e:	cf94                	sw	a3,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:68
+        EFC->CR |= ((SystemCoreClock / 2000000 - 1) << 16) | (0x3e7 << 22);
+10100810:	438c                	lw	a1,0(a5)
+10100812:	177d                	addi	a4,a4,-1
+10100814:	0742                	slli	a4,a4,0x10
+10100816:	8f4d                	or	a4,a4,a1
+10100818:	f9c005b7          	lui	a1,0xf9c00
+1010081c:	8f4d                	or	a4,a4,a1
+1010081e:	c398                	sw	a4,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:69
+        EFC_WPT_UNLOCK();
+10100820:	cf90                	sw	a2,24(a5)
+10100822:	cf94                	sw	a3,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:70
+        EFC->TNVS = 0x0e;
+10100824:	0067a223          	sw	t1,4(a5) # 40000004 <_sp+0x1fffd804>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:71
+        EFC_WPT_UNLOCK();
+10100828:	cf90                	sw	a2,24(a5)
+1010082a:	cf94                	sw	a3,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:72
+        EFC->TPROG = 0x0e;
+1010082c:	0067a423          	sw	t1,8(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:73
+        EFC_WPT_UNLOCK();
+10100830:	cf90                	sw	a2,24(a5)
+10100832:	cf94                	sw	a3,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:74
+        EFC->TPGS = 0x0c;
+10100834:	4731                	li	a4,12
+10100836:	c7d8                	sw	a4,12(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:75
+        EFC_WPT_UNLOCK();
+10100838:	cf90                	sw	a2,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:76
+        EFC->TRCV = 0xcf1e0;
+1010083a:	000cf737          	lui	a4,0xcf
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:75
+        EFC_WPT_UNLOCK();
+1010083e:	cf94                	sw	a3,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:76
+        EFC->TRCV = 0xcf1e0;
+10100840:	1e070713          	addi	a4,a4,480 # cf1e0 <__stack_size+0xce9e0>
+10100844:	cb98                	sw	a4,16(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:77
+        EFC_WPT_UNLOCK();
+10100846:	cf90                	sw	a2,24(a5)
+10100848:	cf94                	sw	a3,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:78
+        EFC->TERASE = 0x4c6;
+1010084a:	4c600713          	li	a4,1222
+1010084e:	cbd8                	sw	a4,20(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:81
+}
+10100850:	40a2                	lw	ra,8(sp)
+10100852:	0131                	addi	sp,sp,12
+10100854:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:33
+        EFC_WPT_UNLOCK();
+10100856:	400007b7          	lui	a5,0x40000
+1010085a:	0c300693          	li	a3,195
+1010085e:	cf94                	sw	a3,24(a5)
+10100860:	03c00713          	li	a4,60
+10100864:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:34
+        EFC->CR &= ~(EFC_CR_PRG2MDIV | EFC_CR_ERS2KDIV);
+10100866:	4390                	lw	a2,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:36
+        EFC->CR |= (1 << 16) | (0xf9 << 22);
+10100868:	3e410537          	lui	a0,0x3e410
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:39
+        EFC->TNVS = 0x03; // 6us + 1*1 = 7us
+1010086c:	458d                	li	a1,3
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:34
+        EFC->CR &= ~(EFC_CR_PRG2MDIV | EFC_CR_ERS2KDIV);
+1010086e:	0642                	slli	a2,a2,0x10
+10100870:	8241                	srli	a2,a2,0x10
+10100872:	c390                	sw	a2,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:35
+        EFC_WPT_UNLOCK();
+10100874:	cf94                	sw	a3,24(a5)
+10100876:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:36
+        EFC->CR |= (1 << 16) | (0xf9 << 22);
+10100878:	4390                	lw	a2,0(a5)
+1010087a:	8e49                	or	a2,a2,a0
+1010087c:	c390                	sw	a2,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:38
+        EFC_WPT_UNLOCK();
+1010087e:	cf94                	sw	a3,24(a5)
+10100880:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:39
+        EFC->TNVS = 0x03; // 6us + 1*1 = 7us
+10100882:	c3cc                	sw	a1,4(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:40
+        EFC_WPT_UNLOCK();
+10100884:	cf94                	sw	a3,24(a5)
+10100886:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:41
+        EFC->TPROG = 0x03; // 6us + 1*1 = 7us
+10100888:	c78c                	sw	a1,8(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:42
+        EFC_WPT_UNLOCK();
+1010088a:	cf94                	sw	a3,24(a5)
+1010088c:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:43
+        EFC->TPGS = 0x01; // 2us + 3*1 = 6us
+1010088e:	4605                	li	a2,1
+10100890:	c7d0                	sw	a2,12(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:44
+        EFC_WPT_UNLOCK();
+10100892:	cf94                	sw	a3,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:45
+        EFC->TRCV = (0x4 << 16) | (0x1f << 9) | 0x79;
+10100894:	00044637          	lui	a2,0x44
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:44
+        EFC_WPT_UNLOCK();
+10100898:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:45
+        EFC->TRCV = (0x4 << 16) | (0x1f << 9) | 0x79;
+1010089a:	e7960613          	addi	a2,a2,-391 # 43e79 <__stack_size+0x43679>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:61
+        EFC->TRCV = (0x6 << 16) | (0x3d << 9) | 0xf1;
+1010089e:	cb90                	sw	a2,16(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:62
+        EFC_WPT_UNLOCK();
+101008a0:	cf94                	sw	a3,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:81
+}
+101008a2:	40a2                	lw	ra,8(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:62
+        EFC_WPT_UNLOCK();
+101008a4:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:63
+        EFC->TERASE = (0x09 << 7) | 0x46;
+101008a6:	4c600713          	li	a4,1222
+101008aa:	cbd8                	sw	a4,20(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:80
+    return TRUE;
+101008ac:	4505                	li	a0,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:81
+}
+101008ae:	0131                	addi	sp,sp,12
+101008b0:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:49
+        EFC_WPT_UNLOCK();
+101008b2:	400007b7          	lui	a5,0x40000
+101008b6:	0c300693          	li	a3,195
+101008ba:	cf94                	sw	a3,24(a5)
+101008bc:	03c00713          	li	a4,60
+101008c0:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:50
+        EFC->CR &= ~(EFC_CR_PRG2MDIV | EFC_CR_ERS2KDIV);
+101008c2:	4390                	lw	a2,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:52
+        EFC->CR |= (1 << 16) | (0x1f3 << 22);
+101008c4:	7cc10537          	lui	a0,0x7cc10
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:55
+        EFC->TNVS = 0x06; // 6us + 1*0.5 = 6.5us
+101008c8:	4599                	li	a1,6
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:50
+        EFC->CR &= ~(EFC_CR_PRG2MDIV | EFC_CR_ERS2KDIV);
+101008ca:	0642                	slli	a2,a2,0x10
+101008cc:	8241                	srli	a2,a2,0x10
+101008ce:	c390                	sw	a2,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:51
+        EFC_WPT_UNLOCK();
+101008d0:	cf94                	sw	a3,24(a5)
+101008d2:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:52
+        EFC->CR |= (1 << 16) | (0x1f3 << 22);
+101008d4:	4390                	lw	a2,0(a5)
+101008d6:	8e49                	or	a2,a2,a0
+101008d8:	c390                	sw	a2,0(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:54
+        EFC_WPT_UNLOCK();
+101008da:	cf94                	sw	a3,24(a5)
+101008dc:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:55
+        EFC->TNVS = 0x06; // 6us + 1*0.5 = 6.5us
+101008de:	c3cc                	sw	a1,4(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:56
+        EFC_WPT_UNLOCK();
+101008e0:	cf94                	sw	a3,24(a5)
+101008e2:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:57
+        EFC->TPROG = 0x06; // 6us + 1*0.5 = 6.5us
+101008e4:	c78c                	sw	a1,8(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:58
+        EFC_WPT_UNLOCK();
+101008e6:	cf94                	sw	a3,24(a5)
+101008e8:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:59
+        EFC->TPGS = 0x04; // 4us + 3*0.5 = 5.5us
+101008ea:	4611                	li	a2,4
+101008ec:	c7d0                	sw	a2,12(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:60
+        EFC_WPT_UNLOCK();
+101008ee:	cf94                	sw	a3,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:61
+        EFC->TRCV = (0x6 << 16) | (0x3d << 9) | 0xf1;
+101008f0:	00068637          	lui	a2,0x68
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:60
+        EFC_WPT_UNLOCK();
+101008f4:	cf98                	sw	a4,24(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:61
+        EFC->TRCV = (0x6 << 16) | (0x3d << 9) | 0xf1;
+101008f6:	af160613          	addi	a2,a2,-1295 # 67af1 <__stack_size+0x672f1>
+101008fa:	b755                	j	1010089e <EFC_Init+0xe4>
+
+101008fc <EFC_PageProgram>:
+EFC_PageProgram():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:127
+eReturnType EFC_PageProgram(u32 u32Addr) {
+    PARAM_CHECK(u32Addr & 0x1ff);
+    PARAM_CHECK((u32Addr < 0x10100000) ||
+                ((u32Addr > 0x1011ffff) && (u32Addr < 0x10140000)) ||
+                (u32Addr > 0x10140dff));
+    u32 stat = EFC_STS_REG;
+101008fc:	400007b7          	lui	a5,0x40000
+10100900:	53d8                	lw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:128
+    EFC_STS_REG = stat;
+10100902:	d3d8                	sw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:129
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_ROW_PRG);
+10100904:	4705                	li	a4,1
+10100906:	cfd8                	sw	a4,28(a5)
+10100908:	07100713          	li	a4,113
+1010090c:	cfd8                	sw	a4,28(a5)
+1010090e:	09100713          	li	a4,145
+10100912:	cfd8                	sw	a4,28(a5)
+10100914:	0c100713          	li	a4,193
+10100918:	cfd8                	sw	a4,28(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:130
+    REG32(u32Addr) = 0xffffffff;
+1010091a:	57fd                	li	a5,-1
+1010091c:	c11c                	sw	a5,0(a0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:131
+    while (!EFC_STS_REG)
+1010091e:	400007b7          	lui	a5,0x40000
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:131 (discriminator 1)
+10100922:	53d8                	lw	a4,36(a5)
+10100924:	df7d                	beqz	a4,10100922 <EFC_PageProgram+0x26>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:133
+        ;
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100926:	53d8                	lw	a4,36(a5)
+10100928:	4605                	li	a2,1
+1010092a:	02c71a63          	bne	a4,a2,1010095e <EFC_PageProgram+0x62>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:136
+        return EFC_PAGE_PRG_FAIL;
+    }
+    EFC_STS_REG = EFC_STS_CD;
+1010092e:	d3d8                	sw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:137
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_ROW_PRG);
+10100930:	cfd8                	sw	a4,28(a5)
+10100932:	07100713          	li	a4,113
+10100936:	cfd8                	sw	a4,28(a5)
+10100938:	09100713          	li	a4,145
+1010093c:	cfd8                	sw	a4,28(a5)
+1010093e:	0c100713          	li	a4,193
+10100942:	cfd8                	sw	a4,28(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:138
+    REG32(u32Addr + 256) = 0xffffffff;
+10100944:	57fd                	li	a5,-1
+10100946:	10f52023          	sw	a5,256(a0) # 7cc10100 <_sp+0x5cc0d900>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:139
+    while (!EFC_STS_REG)
+1010094a:	400007b7          	lui	a5,0x40000
+1010094e:	53d8                	lw	a4,36(a5)
+10100950:	df7d                	beqz	a4,1010094e <EFC_PageProgram+0x52>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:141
+        ;
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100952:	53d8                	lw	a4,36(a5)
+10100954:	4785                	li	a5,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:144
+        return EFC_PAGE_PRG_FAIL;
+    }
+    return EFC_SUCCESS;
+10100956:	4501                	li	a0,0
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:141
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100958:	00f71363          	bne	a4,a5,1010095e <EFC_PageProgram+0x62>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:145
+}
+1010095c:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:142
+        return EFC_PAGE_PRG_FAIL;
+1010095e:	4509                	li	a0,2
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:145
+}
+10100960:	8082                	ret
+
+10100962 <EFC_PageErase>:
+EFC_PageErase():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:158
+eReturnType EFC_PageErase(u32 u32Addr) {
+    PARAM_CHECK((u32Addr < 0x10100000) ||
+                ((u32Addr > 0x1011ffff) && (u32Addr < 0x10140000)) ||
+                ((u32Addr > 0x10140dff) && (u32Addr < 0x10180000)) ||
+                (u32Addr > 0x101803ff));
+    u32 stat = EFC_STS_REG;
+10100962:	400007b7          	lui	a5,0x40000
+10100966:	53d8                	lw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:159
+    EFC_STS_REG = stat;
+10100968:	d3d8                	sw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:160
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_PAGE_ERASE);
+1010096a:	4709                	li	a4,2
+1010096c:	cfd8                	sw	a4,28(a5)
+1010096e:	07200713          	li	a4,114
+10100972:	cfd8                	sw	a4,28(a5)
+10100974:	09200713          	li	a4,146
+10100978:	cfd8                	sw	a4,28(a5)
+1010097a:	0c200713          	li	a4,194
+1010097e:	cfd8                	sw	a4,28(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:161
+    REG32(u32Addr) = 0xffffffff;
+10100980:	57fd                	li	a5,-1
+10100982:	c11c                	sw	a5,0(a0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:162
+    while (!EFC_STS_REG)
+10100984:	400007b7          	lui	a5,0x40000
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:162 (discriminator 1)
+10100988:	53d8                	lw	a4,36(a5)
+1010098a:	df7d                	beqz	a4,10100988 <EFC_PageErase+0x26>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:164
+        ;
+    if (EFC_STS_REG != EFC_STS_CD) {
+1010098c:	53d8                	lw	a4,36(a5)
+1010098e:	4785                	li	a5,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:167
+        return EFC_PAGE_ERASE_FAIL;
+    }
+    return EFC_SUCCESS;
+10100990:	4501                	li	a0,0
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:164
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100992:	00f71363          	bne	a4,a5,10100998 <EFC_PageErase+0x36>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:168
+}
+10100996:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:165
+        return EFC_PAGE_ERASE_FAIL;
+10100998:	450d                	li	a0,3
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:168
+}
+1010099a:	8082                	ret
+
+1010099c <EFC_PageLoad>:
+EFC_PageLoad():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:205
+eReturnType EFC_PageLoad(u32 u32Addr) {
+    PARAM_CHECK(u32Addr & 0x1ff);
+    PARAM_CHECK((u32Addr < 0x10100000) ||
+                ((u32Addr > 0x1011ffff) && (u32Addr < 0x10140000)) ||
+                (u32Addr > 0x10140dff));
+    u32 stat = EFC_STS_REG;
+1010099c:	400007b7          	lui	a5,0x40000
+101009a0:	53d8                	lw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:206
+    EFC_STS_REG = stat;
+101009a2:	d3d8                	sw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:207
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_PAGE_LOAD);
+101009a4:	4711                	li	a4,4
+101009a6:	cfd8                	sw	a4,28(a5)
+101009a8:	07400713          	li	a4,116
+101009ac:	cfd8                	sw	a4,28(a5)
+101009ae:	09400713          	li	a4,148
+101009b2:	cfd8                	sw	a4,28(a5)
+101009b4:	0c400713          	li	a4,196
+101009b8:	cfd8                	sw	a4,28(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:208
+    REG32(u32Addr) = 0xffffffff;
+101009ba:	57fd                	li	a5,-1
+101009bc:	c11c                	sw	a5,0(a0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:209
+    while (!EFC_STS_REG)
+101009be:	400007b7          	lui	a5,0x40000
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:209 (discriminator 1)
+101009c2:	53d8                	lw	a4,36(a5)
+101009c4:	df7d                	beqz	a4,101009c2 <EFC_PageLoad+0x26>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:211
+        ;
+    if (EFC_STS_REG != EFC_STS_CD) {
+101009c6:	53d8                	lw	a4,36(a5)
+101009c8:	4785                	li	a5,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:214
+        return EFC_PAGE_LOAD_FAIL;
+    }
+    return EFC_SUCCESS;
+101009ca:	4501                	li	a0,0
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:211
+    if (EFC_STS_REG != EFC_STS_CD) {
+101009cc:	00f71363          	bne	a4,a5,101009d2 <EFC_PageLoad+0x36>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:215
+}
+101009d0:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:212
+        return EFC_PAGE_LOAD_FAIL;
+101009d2:	4515                	li	a0,5
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:215
+}
+101009d4:	8082                	ret
+
+101009d6 <EFC_FlashPageWrite>:
+EFC_PageErase():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:158
+    u32 stat = EFC_STS_REG;
+101009d6:	400007b7          	lui	a5,0x40000
+101009da:	53d8                	lw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:159
+    EFC_STS_REG = stat;
+101009dc:	d3d8                	sw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:160
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_PAGE_ERASE);
+101009de:	4709                	li	a4,2
+101009e0:	cfd8                	sw	a4,28(a5)
+101009e2:	07200713          	li	a4,114
+101009e6:	cfd8                	sw	a4,28(a5)
+101009e8:	09200713          	li	a4,146
+101009ec:	cfd8                	sw	a4,28(a5)
+101009ee:	0c200713          	li	a4,194
+101009f2:	cfd8                	sw	a4,28(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:161
+    REG32(u32Addr) = 0xffffffff;
+101009f4:	57fd                	li	a5,-1
+101009f6:	c11c                	sw	a5,0(a0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:162
+    while (!EFC_STS_REG)
+101009f8:	400007b7          	lui	a5,0x40000
+101009fc:	53d8                	lw	a4,36(a5)
+101009fe:	df7d                	beqz	a4,101009fc <EFC_FlashPageWrite+0x26>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:164
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100a00:	0247a383          	lw	t2,36(a5) # 40000024 <_sp+0x1fffd824>
+10100a04:	4285                	li	t0,1
+EFC_FlashPageWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:282
+    PARAM_CHECK((u32Addr < 0x10100000) ||
+                ((u32Addr > 0x1011ffff) && (u32Addr < 0x10140000)) ||
+                (u32Addr > 0x10140dff));
+    PARAM_CHECK(u32Len & 0x1ff);
+    if (EFC_PageErase(u32Addr) != EFC_SUCCESS) {
+        return EFC_PAGE_ERASE_FAIL;
+10100a06:	470d                	li	a4,3
+EFC_PageErase():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:164
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100a08:	08539e63          	bne	t2,t0,10100aa4 <EFC_FlashPageWrite+0xce>
+EFC_PageEraseVerify():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:229
+    u32 stat = EFC_STS_REG;
+10100a0c:	53d8                	lw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:230
+    EFC_STS_REG = stat;
+10100a0e:	d3d8                	sw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:231
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_PE_V);
+10100a10:	4715                	li	a4,5
+10100a12:	cfd8                	sw	a4,28(a5)
+10100a14:	07500713          	li	a4,117
+10100a18:	cfd8                	sw	a4,28(a5)
+10100a1a:	09500713          	li	a4,149
+10100a1e:	cfd8                	sw	a4,28(a5)
+10100a20:	0c500713          	li	a4,197
+10100a24:	cfd8                	sw	a4,28(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:232
+    REG32(u32Addr) = 0xffffffff;
+10100a26:	57fd                	li	a5,-1
+10100a28:	c11c                	sw	a5,0(a0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:233
+    while (!EFC_STS_REG)
+10100a2a:	400007b7          	lui	a5,0x40000
+10100a2e:	53d8                	lw	a4,36(a5)
+10100a30:	df7d                	beqz	a4,10100a2e <EFC_FlashPageWrite+0x58>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:235
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100a32:	53dc                	lw	a5,36(a5)
+10100a34:	4305                	li	t1,1
+EFC_FlashPageWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:285
+    }
+    if (EFC_PageEraseVerify(u32Addr) != EFC_SUCCESS) {
+        return EFC_PE_VERIFY_FAIL;
+10100a36:	4719                	li	a4,6
+EFC_PageEraseVerify():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:235
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100a38:	06679663          	bne	a5,t1,10100aa4 <EFC_FlashPageWrite+0xce>
+EFC_FlashPageWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:275
+                               u32 u32PrgType) {
+10100a3c:	1151                	addi	sp,sp,-12
+10100a3e:	c406                	sw	ra,8(sp)
+10100a40:	c222                	sw	s0,4(sp)
+10100a42:	c026                	sw	s1,0(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:287
+    }
+    if (u32PrgType == EFC_FLASH_WRITE_WORD) {
+10100a44:	06f68463          	beq	a3,a5,10100aac <EFC_FlashPageWrite+0xd6>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:301
+            }
+            ++pu32Dat;
+        }
+    } else {
+        int i;
+        for (i = 0; i < u32Len; ++i) {
+10100a48:	101c0737          	lui	a4,0x101c0
+10100a4c:	4781                	li	a5,0
+10100a4e:	ca01                	beqz	a2,10100a5e <EFC_FlashPageWrite+0x88>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:302 (discriminator 3)
+            REG32(PAGE_BUFF_BASE + (i << 2)) = *pu32Dat;
+10100a50:	4194                	lw	a3,0(a1)
+10100a52:	0711                	addi	a4,a4,4
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:301 (discriminator 3)
+        for (i = 0; i < u32Len; ++i) {
+10100a54:	0785                	addi	a5,a5,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:302 (discriminator 3)
+            REG32(PAGE_BUFF_BASE + (i << 2)) = *pu32Dat;
+10100a56:	fed72e23          	sw	a3,-4(a4) # 101bfffc <_data_lma+0xbf174>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:301 (discriminator 3)
+        for (i = 0; i < u32Len; ++i) {
+10100a5a:	fec79be3          	bne	a5,a2,10100a50 <EFC_FlashPageWrite+0x7a>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:304
+        }
+        if (EFC_PageProgram(u32Addr) != EFC_SUCCESS) {
+10100a5e:	842a                	mv	s0,a0
+10100a60:	3d71                	jal	101008fc <EFC_PageProgram>
+10100a62:	e94d                	bnez	a0,10100b14 <EFC_FlashPageWrite+0x13e>
+EFC_ProgramVerify():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:252
+    u32 stat = EFC_STS_REG;
+10100a64:	400007b7          	lui	a5,0x40000
+10100a68:	53d8                	lw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:253
+    EFC_STS_REG = stat;
+10100a6a:	d3d8                	sw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:254
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_PP_V);
+10100a6c:	4719                	li	a4,6
+10100a6e:	cfd8                	sw	a4,28(a5)
+10100a70:	07600713          	li	a4,118
+10100a74:	cfd8                	sw	a4,28(a5)
+10100a76:	09600713          	li	a4,150
+10100a7a:	cfd8                	sw	a4,28(a5)
+10100a7c:	0c600713          	li	a4,198
+10100a80:	cfd8                	sw	a4,28(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:255
+    REG32(u32Addr) = 0xffffffff;
+10100a82:	57fd                	li	a5,-1
+10100a84:	c01c                	sw	a5,0(s0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:256
+    while (!EFC_STS_REG)
+10100a86:	400007b7          	lui	a5,0x40000
+10100a8a:	53d8                	lw	a4,36(a5)
+10100a8c:	df7d                	beqz	a4,10100a8a <EFC_FlashPageWrite+0xb4>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:258
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100a8e:	53d8                	lw	a4,36(a5)
+10100a90:	4785                	li	a5,1
+10100a92:	00f71b63          	bne	a4,a5,10100aa8 <EFC_FlashPageWrite+0xd2>
+EFC_FlashPageWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:311
+        }
+        if (EFC_ProgramVerify(u32Addr) != EFC_SUCCESS) {
+            return EFC_PP_VERIFY_FAIL;
+        }
+    }
+    return EFC_SUCCESS;
+10100a96:	4701                	li	a4,0
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:312
+}
+10100a98:	40a2                	lw	ra,8(sp)
+10100a9a:	4412                	lw	s0,4(sp)
+10100a9c:	4482                	lw	s1,0(sp)
+10100a9e:	853a                	mv	a0,a4
+10100aa0:	0131                	addi	sp,sp,12
+10100aa2:	8082                	ret
+10100aa4:	853a                	mv	a0,a4
+10100aa6:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:308
+            return EFC_PP_VERIFY_FAIL;
+10100aa8:	471d                	li	a4,7
+10100aaa:	b7fd                	j	10100a98 <EFC_FlashPageWrite+0xc2>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:289
+        for (i = 0; i < u32Len; ++i) {
+10100aac:	4381                	li	t2,0
+10100aae:	40b506b3          	sub	a3,a0,a1
+10100ab2:	d275                	beqz	a2,10100a96 <EFC_FlashPageWrite+0xc0>
+EFC_SingleProgram():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:95
+    u32 stat = EFC_STS_REG;
+10100ab4:	400007b7          	lui	a5,0x40000
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:97
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_SIG_PRG);
+10100ab8:	01c78313          	addi	t1,a5,28 # 4000001c <_sp+0x1fffd81c>
+10100abc:	07000493          	li	s1,112
+10100ac0:	09000413          	li	s0,144
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:95
+    u32 stat = EFC_STS_REG;
+10100ac4:	53c8                	lw	a0,36(a5)
+EFC_FlashPageWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:290
+            if (EFC_SingleProgram(u32Addr + (i << 2), EFC_PRG_WORD, *pu32Dat) !=
+10100ac6:	4198                	lw	a4,0(a1)
+EFC_SingleProgram():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:96
+    EFC_STS_REG = stat;
+10100ac8:	00d582b3          	add	t0,a1,a3
+10100acc:	d3c8                	sw	a0,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:97
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_SIG_PRG);
+10100ace:	00032023          	sw	zero,0(t1)
+10100ad2:	00932023          	sw	s1,0(t1)
+10100ad6:	00832023          	sw	s0,0(t1)
+10100ada:	0c000513          	li	a0,192
+10100ade:	00a32023          	sw	a0,0(t1)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:105
+        REG32(Addr) = Data;
+10100ae2:	00e2a023          	sw	a4,0(t0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:107
+    while (!EFC_STS_REG)
+10100ae6:	53d8                	lw	a4,36(a5)
+10100ae8:	df7d                	beqz	a4,10100ae6 <EFC_FlashPageWrite+0x110>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:109
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100aea:	53d8                	lw	a4,36(a5)
+10100aec:	4505                	li	a0,1
+10100aee:	00a71c63          	bne	a4,a0,10100b06 <EFC_FlashPageWrite+0x130>
+EFC_FlashPageWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:294
+            if (REG32(u32Addr + (i << 2)) != *pu32Dat) {
+10100af2:	0002a503          	lw	a0,0(t0)
+10100af6:	4198                	lw	a4,0(a1)
+10100af8:	00e51e63          	bne	a0,a4,10100b14 <EFC_FlashPageWrite+0x13e>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:289 (discriminator 2)
+        for (i = 0; i < u32Len; ++i) {
+10100afc:	0385                	addi	t2,t2,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:297 (discriminator 2)
+            ++pu32Dat;
+10100afe:	0591                	addi	a1,a1,4
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:289 (discriminator 2)
+        for (i = 0; i < u32Len; ++i) {
+10100b00:	fcc392e3          	bne	t2,a2,10100ac4 <EFC_FlashPageWrite+0xee>
+10100b04:	bf49                	j	10100a96 <EFC_FlashPageWrite+0xc0>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:312
+}
+10100b06:	40a2                	lw	ra,8(sp)
+10100b08:	4412                	lw	s0,4(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:292
+                return EFC_SING_PRG_FAIL;
+10100b0a:	4705                	li	a4,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:312
+}
+10100b0c:	4482                	lw	s1,0(sp)
+10100b0e:	853a                	mv	a0,a4
+10100b10:	0131                	addi	sp,sp,12
+10100b12:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:295
+                return EFC_FLASH_WRITE_FAIL;
+10100b14:	4721                	li	a4,8
+10100b16:	b749                	j	10100a98 <EFC_FlashPageWrite+0xc2>
+
+10100b18 <EFC_PAGE_BUFFERWrite>:
+EFC_PageErase():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:158
+    u32 stat = EFC_STS_REG;
+10100b18:	400007b7          	lui	a5,0x40000
+10100b1c:	53d8                	lw	a4,36(a5)
+EFC_PAGE_BUFFERWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:346
+    return TRUE;
+}
+
+
+eReturnType EFC_PAGE_BUFFERWrite(u32 u32Addr) 
+{
+10100b1e:	862a                	mv	a2,a0
+EFC_PageErase():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:159
+    EFC_STS_REG = stat;
+10100b20:	d3d8                	sw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:160
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_PAGE_ERASE);
+10100b22:	4709                	li	a4,2
+10100b24:	cfd8                	sw	a4,28(a5)
+10100b26:	07200713          	li	a4,114
+10100b2a:	cfd8                	sw	a4,28(a5)
+10100b2c:	09200713          	li	a4,146
+10100b30:	cfd8                	sw	a4,28(a5)
+10100b32:	0c200713          	li	a4,194
+10100b36:	cfd8                	sw	a4,28(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:161
+    REG32(u32Addr) = 0xffffffff;
+10100b38:	57fd                	li	a5,-1
+10100b3a:	c11c                	sw	a5,0(a0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:162
+    while (!EFC_STS_REG)
+10100b3c:	400007b7          	lui	a5,0x40000
+10100b40:	53d8                	lw	a4,36(a5)
+10100b42:	df7d                	beqz	a4,10100b40 <EFC_PAGE_BUFFERWrite+0x28>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:164
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100b44:	53cc                	lw	a1,36(a5)
+10100b46:	4705                	li	a4,1
+EFC_PAGE_BUFFERWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:352
+	PARAM_CHECK(u32Addr & 0x1ff);
+	PARAM_CHECK((u32Addr < 0x10100000) ||
+				((u32Addr > 0x1011ffff) && (u32Addr < 0x10140000)) ||
+				(u32Addr > 0x10140dff));
+	if (EFC_PageErase(u32Addr) != EFC_SUCCESS) {
+		return EFC_PAGE_ERASE_FAIL;
+10100b48:	450d                	li	a0,3
+EFC_PageErase():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:164
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100b4a:	06e59f63          	bne	a1,a4,10100bc8 <EFC_PAGE_BUFFERWrite+0xb0>
+EFC_PageEraseVerify():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:229
+    u32 stat = EFC_STS_REG;
+10100b4e:	53d8                	lw	a4,36(a5)
+EFC_PAGE_BUFFERWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:346
+{
+10100b50:	1141                	addi	sp,sp,-16
+10100b52:	c422                	sw	s0,8(sp)
+10100b54:	c606                	sw	ra,12(sp)
+10100b56:	c226                	sw	s1,4(sp)
+EFC_PageEraseVerify():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:230
+    EFC_STS_REG = stat;
+10100b58:	d3d8                	sw	a4,36(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:231
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_PE_V);
+10100b5a:	4715                	li	a4,5
+10100b5c:	cfd8                	sw	a4,28(a5)
+10100b5e:	07500713          	li	a4,117
+10100b62:	cfd8                	sw	a4,28(a5)
+10100b64:	09500713          	li	a4,149
+10100b68:	cfd8                	sw	a4,28(a5)
+10100b6a:	0c500713          	li	a4,197
+10100b6e:	cfd8                	sw	a4,28(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:232
+    REG32(u32Addr) = 0xffffffff;
+10100b70:	57fd                	li	a5,-1
+10100b72:	c21c                	sw	a5,0(a2)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:233
+    while (!EFC_STS_REG)
+10100b74:	40000437          	lui	s0,0x40000
+10100b78:	505c                	lw	a5,36(s0)
+10100b7a:	dffd                	beqz	a5,10100b78 <EFC_PAGE_BUFFERWrite+0x60>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:235
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100b7c:	5058                	lw	a4,36(s0)
+10100b7e:	4785                	li	a5,1
+EFC_PAGE_BUFFERWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:355
+	}
+	if (EFC_PageEraseVerify(u32Addr) != EFC_SUCCESS) {
+		return EFC_PE_VERIFY_FAIL;
+10100b80:	4519                	li	a0,6
+EFC_PageEraseVerify():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:235
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100b82:	02f71e63          	bne	a4,a5,10100bbe <EFC_PAGE_BUFFERWrite+0xa6>
+EFC_PAGE_BUFFERWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:358
+	}
+	
+	if (EFC_PageProgram(u32Addr) != EFC_SUCCESS) {
+10100b86:	8532                	mv	a0,a2
+10100b88:	c032                	sw	a2,0(sp)
+10100b8a:	3b8d                	jal	101008fc <EFC_PageProgram>
+10100b8c:	e529                	bnez	a0,10100bd6 <EFC_PAGE_BUFFERWrite+0xbe>
+EFC_ProgramVerify():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:252
+    u32 stat = EFC_STS_REG;
+10100b8e:	505c                	lw	a5,36(s0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:255
+    REG32(u32Addr) = 0xffffffff;
+10100b90:	4602                	lw	a2,0(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:253
+    EFC_STS_REG = stat;
+10100b92:	d05c                	sw	a5,36(s0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:254
+    EFC_OPR_OPEN(EFC_OPR_OPRMODE_PP_V);
+10100b94:	4799                	li	a5,6
+10100b96:	cc5c                	sw	a5,28(s0)
+10100b98:	07600793          	li	a5,118
+10100b9c:	cc5c                	sw	a5,28(s0)
+10100b9e:	09600793          	li	a5,150
+10100ba2:	cc5c                	sw	a5,28(s0)
+10100ba4:	0c600793          	li	a5,198
+10100ba8:	cc5c                	sw	a5,28(s0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:255
+    REG32(u32Addr) = 0xffffffff;
+10100baa:	57fd                	li	a5,-1
+10100bac:	c21c                	sw	a5,0(a2)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:256
+    while (!EFC_STS_REG)
+10100bae:	400007b7          	lui	a5,0x40000
+10100bb2:	53d8                	lw	a4,36(a5)
+10100bb4:	df7d                	beqz	a4,10100bb2 <EFC_PAGE_BUFFERWrite+0x9a>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:258
+    if (EFC_STS_REG != EFC_STS_CD) {
+10100bb6:	53d8                	lw	a4,36(a5)
+10100bb8:	4785                	li	a5,1
+10100bba:	00f71863          	bne	a4,a5,10100bca <EFC_PAGE_BUFFERWrite+0xb2>
+EFC_PAGE_BUFFERWrite():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:366
+	if (EFC_ProgramVerify(u32Addr) != EFC_SUCCESS) {
+		return EFC_PP_VERIFY_FAIL;
+	}
+	
+	return EFC_SUCCESS;
+}
+10100bbe:	40b2                	lw	ra,12(sp)
+10100bc0:	4422                	lw	s0,8(sp)
+10100bc2:	4492                	lw	s1,4(sp)
+10100bc4:	0141                	addi	sp,sp,16
+10100bc6:	8082                	ret
+10100bc8:	8082                	ret
+10100bca:	40b2                	lw	ra,12(sp)
+10100bcc:	4422                	lw	s0,8(sp)
+10100bce:	4492                	lw	s1,4(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:362
+		return EFC_PP_VERIFY_FAIL;
+10100bd0:	451d                	li	a0,7
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:366
+}
+10100bd2:	0141                	addi	sp,sp,16
+10100bd4:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/efc.c:359
+		return EFC_FLASH_WRITE_FAIL;
+10100bd6:	4521                	li	a0,8
+10100bd8:	b7dd                	j	10100bbe <EFC_PAGE_BUFFERWrite+0xa6>
+
+10100bda <GPIO_PinConfigure>:
+GPIO_PinConfigure():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:27
+ * @param pdEn :ENABLE , DISABLE
+ * @param outOpenDrainEn :ENABLE , DISABLE
+ */
+void GPIO_PinConfigure(int pin, int analogEn, int outputEn, int puEn, int pdEn,
+                       int outOpenDrainEn) {
+    SYSC->CLKENCFG |= SYSC_CLKENCFG_IOM;
+10100bda:	400013b7          	lui	t2,0x40001
+10100bde:	0083a283          	lw	t0,8(t2) # 40001008 <_sp+0x1fffe808>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:26
+                       int outOpenDrainEn) {
+10100be2:	1121                	addi	sp,sp,-24
+10100be4:	ca22                	sw	s0,20(sp)
+10100be6:	c826                	sw	s1,16(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:27
+    SYSC->CLKENCFG |= SYSC_CLKENCFG_IOM;
+10100be8:	4002e293          	ori	t0,t0,1024
+10100bec:	0053a423          	sw	t0,8(t2)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:26
+                       int outOpenDrainEn) {
+10100bf0:	c63e                	sw	a5,12(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:30
+    PARAM_CHECK((pin == 0) || (pin >= (1 << 20)));
+    if (analogEn == ENABLE) {
+        IOM->ADS |= pin;
+10100bf2:	400127b7          	lui	a5,0x40012
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:26
+                       int outOpenDrainEn) {
+10100bf6:	c43a                	sw	a4,8(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:30
+        IOM->ADS |= pin;
+10100bf8:	4147a703          	lw	a4,1044(a5) # 40012414 <_sp+0x2000fc14>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:29
+    if (analogEn == ENABLE) {
+10100bfc:	4305                	li	t1,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:26
+                       int outOpenDrainEn) {
+10100bfe:	c032                	sw	a2,0(sp)
+10100c00:	c236                	sw	a3,4(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:29
+    if (analogEn == ENABLE) {
+10100c02:	12658763          	beq	a1,t1,10100d30 <GPIO_PinConfigure+0x156>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:34
+    } else {
+        int i;
+        int pinTmp = pin;
+        IOM->ADS &= ~pin;
+10100c06:	fff54493          	not	s1,a0
+10100c0a:	8f65                	and	a4,a4,s1
+10100c0c:	40e7aa23          	sw	a4,1044(a5)
+10100c10:	4701                	li	a4,0
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:33
+        int pinTmp = pin;
+10100c12:	86aa                	mv	a3,a0
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:40
+        for (i = 0; i < 20; ++i) {
+            if (pinTmp & 0x01) {
+                if (i < 16) {
+                    IOM->AF0 &= ~(3 << (i << 1));
+                } else {
+                    IOM->AF1 &= ~(3 << ((i - 16) << 1));
+10100c14:	430d                	li	t1,3
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:38
+                    IOM->AF0 &= ~(3 << (i << 1));
+10100c16:	00171793          	slli	a5,a4,0x1
+10100c1a:	00f317b3          	sll	a5,t1,a5
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:36
+            if (pinTmp & 0x01) {
+10100c1e:	0016f593          	andi	a1,a3,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:35
+        for (i = 0; i < 20; ++i) {
+10100c22:	43cd                	li	t2,19
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:37
+                if (i < 16) {
+10100c24:	443d                	li	s0,15
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:40
+                    IOM->AF1 &= ~(3 << ((i - 16) << 1));
+10100c26:	400122b7          	lui	t0,0x40012
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:38
+                    IOM->AF0 &= ~(3 << (i << 1));
+10100c2a:	fff7c793          	not	a5,a5
+10100c2e:	8685                	srai	a3,a3,0x1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:36
+            if (pinTmp & 0x01) {
+10100c30:	c19d                	beqz	a1,10100c56 <GPIO_PinConfigure+0x7c>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:37
+                if (i < 16) {
+10100c32:	08e46463          	bltu	s0,a4,10100cba <GPIO_PinConfigure+0xe0>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:38
+                    IOM->AF0 &= ~(3 << (i << 1));
+10100c36:	41c2a583          	lw	a1,1052(t0) # 4001241c <_sp+0x2000fc1c>
+10100c3a:	8fed                	and	a5,a5,a1
+10100c3c:	40f2ae23          	sw	a5,1052(t0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:43
+                }
+            }
+            pinTmp >>= 1;
+10100c40:	0705                	addi	a4,a4,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:38
+                    IOM->AF0 &= ~(3 << (i << 1));
+10100c42:	00171793          	slli	a5,a4,0x1
+10100c46:	00f317b3          	sll	a5,t1,a5
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:36
+            if (pinTmp & 0x01) {
+10100c4a:	0016f593          	andi	a1,a3,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:38
+                    IOM->AF0 &= ~(3 << (i << 1));
+10100c4e:	fff7c793          	not	a5,a5
+10100c52:	8685                	srai	a3,a3,0x1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:36
+            if (pinTmp & 0x01) {
+10100c54:	fdf9                	bnez	a1,10100c32 <GPIO_PinConfigure+0x58>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:35 (discriminator 2)
+        for (i = 0; i < 20; ++i) {
+10100c56:	fe7715e3          	bne	a4,t2,10100c40 <GPIO_PinConfigure+0x66>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:45
+        }
+        if (outputEn == ENABLE) {
+10100c5a:	4702                	lw	a4,0(sp)
+10100c5c:	4785                	li	a5,1
+10100c5e:	06f70d63          	beq	a4,a5,10100cd8 <GPIO_PinConfigure+0xfe>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:48
+            IOM->OE |= pin;
+        } else {
+            IOM->OE &= ~pin;
+10100c62:	400127b7          	lui	a5,0x40012
+10100c66:	4047a703          	lw	a4,1028(a5) # 40012404 <_sp+0x2000fc04>
+10100c6a:	8f65                	and	a4,a4,s1
+10100c6c:	40e7a223          	sw	a4,1028(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:50
+        }
+        if (outOpenDrainEn == ENABLE) {
+10100c70:	4732                	lw	a4,12(sp)
+10100c72:	4785                	li	a5,1
+10100c74:	06f70d63          	beq	a4,a5,10100cee <GPIO_PinConfigure+0x114>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:53
+            IOM->OTYPE |= pin;
+        } else {
+            IOM->OTYPE &= ~pin;
+10100c78:	400127b7          	lui	a5,0x40012
+10100c7c:	4107a703          	lw	a4,1040(a5) # 40012410 <_sp+0x2000fc10>
+10100c80:	8f65                	and	a4,a4,s1
+10100c82:	40e7a823          	sw	a4,1040(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:55
+        }
+        if (pdEn == ENABLE) {
+10100c86:	4722                	lw	a4,8(sp)
+10100c88:	4785                	li	a5,1
+10100c8a:	06f70d63          	beq	a4,a5,10100d04 <GPIO_PinConfigure+0x12a>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:58
+            IOM->PD |= pin;
+        } else {
+            IOM->PD &= ~pin;
+10100c8e:	400127b7          	lui	a5,0x40012
+10100c92:	40c7a703          	lw	a4,1036(a5) # 4001240c <_sp+0x2000fc0c>
+10100c96:	8f65                	and	a4,a4,s1
+10100c98:	40e7a623          	sw	a4,1036(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:60
+        }
+        if (puEn == ENABLE) {
+10100c9c:	4712                	lw	a4,4(sp)
+10100c9e:	4785                	li	a5,1
+10100ca0:	06f70d63          	beq	a4,a5,10100d1a <GPIO_PinConfigure+0x140>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:63
+            IOM->PU |= pin;
+        } else {
+            IOM->PU &= ~pin;
+10100ca4:	400127b7          	lui	a5,0x40012
+10100ca8:	4087a703          	lw	a4,1032(a5) # 40012408 <_sp+0x2000fc08>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:66
+        }
+    }
+}
+10100cac:	4452                	lw	s0,20(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:63
+            IOM->PU &= ~pin;
+10100cae:	8cf9                	and	s1,s1,a4
+10100cb0:	4097a423          	sw	s1,1032(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:66
+}
+10100cb4:	44c2                	lw	s1,16(sp)
+10100cb6:	0161                	addi	sp,sp,24
+10100cb8:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:40
+                    IOM->AF1 &= ~(3 << ((i - 16) << 1));
+10100cba:	00171793          	slli	a5,a4,0x1
+10100cbe:	4202a583          	lw	a1,1056(t0)
+10100cc2:	1781                	addi	a5,a5,-32
+10100cc4:	00f317b3          	sll	a5,t1,a5
+10100cc8:	fff7c793          	not	a5,a5
+10100ccc:	8fed                	and	a5,a5,a1
+10100cce:	42f2a023          	sw	a5,1056(t0)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:35
+        for (i = 0; i < 20; ++i) {
+10100cd2:	f67717e3          	bne	a4,t2,10100c40 <GPIO_PinConfigure+0x66>
+10100cd6:	b751                	j	10100c5a <GPIO_PinConfigure+0x80>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:46
+            IOM->OE |= pin;
+10100cd8:	400127b7          	lui	a5,0x40012
+10100cdc:	4047a703          	lw	a4,1028(a5) # 40012404 <_sp+0x2000fc04>
+10100ce0:	8f49                	or	a4,a4,a0
+10100ce2:	40e7a223          	sw	a4,1028(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:50
+        if (outOpenDrainEn == ENABLE) {
+10100ce6:	4732                	lw	a4,12(sp)
+10100ce8:	4785                	li	a5,1
+10100cea:	f8f717e3          	bne	a4,a5,10100c78 <GPIO_PinConfigure+0x9e>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:51
+            IOM->OTYPE |= pin;
+10100cee:	400127b7          	lui	a5,0x40012
+10100cf2:	4107a703          	lw	a4,1040(a5) # 40012410 <_sp+0x2000fc10>
+10100cf6:	8f49                	or	a4,a4,a0
+10100cf8:	40e7a823          	sw	a4,1040(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:55
+        if (pdEn == ENABLE) {
+10100cfc:	4722                	lw	a4,8(sp)
+10100cfe:	4785                	li	a5,1
+10100d00:	f8f717e3          	bne	a4,a5,10100c8e <GPIO_PinConfigure+0xb4>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:56
+            IOM->PD |= pin;
+10100d04:	400127b7          	lui	a5,0x40012
+10100d08:	40c7a703          	lw	a4,1036(a5) # 4001240c <_sp+0x2000fc0c>
+10100d0c:	8f49                	or	a4,a4,a0
+10100d0e:	40e7a623          	sw	a4,1036(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:60
+        if (puEn == ENABLE) {
+10100d12:	4712                	lw	a4,4(sp)
+10100d14:	4785                	li	a5,1
+10100d16:	f8f717e3          	bne	a4,a5,10100ca4 <GPIO_PinConfigure+0xca>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:61
+            IOM->PU |= pin;
+10100d1a:	400127b7          	lui	a5,0x40012
+10100d1e:	4087a703          	lw	a4,1032(a5) # 40012408 <_sp+0x2000fc08>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:66
+}
+10100d22:	4452                	lw	s0,20(sp)
+10100d24:	44c2                	lw	s1,16(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:61
+            IOM->PU |= pin;
+10100d26:	8d59                	or	a0,a0,a4
+10100d28:	40a7a423          	sw	a0,1032(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:66
+}
+10100d2c:	0161                	addi	sp,sp,24
+10100d2e:	8082                	ret
+10100d30:	4452                	lw	s0,20(sp)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:30
+        IOM->ADS |= pin;
+10100d32:	8d59                	or	a0,a0,a4
+10100d34:	40a7aa23          	sw	a0,1044(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:66
+}
+10100d38:	44c2                	lw	s1,16(sp)
+10100d3a:	0161                	addi	sp,sp,24
+10100d3c:	8082                	ret
+
+10100d3e <GPIO_SetPin>:
+GPIO_SetPin():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:92
+/**
+ * @brief set pin
+ *
+ * @param pin :GPIO_PINxx    surport '|' combine
+ */
+void GPIO_SetPin(int pin) { IOM->DATA |= pin; }
+10100d3e:	40012737          	lui	a4,0x40012
+10100d42:	40072783          	lw	a5,1024(a4) # 40012400 <_sp+0x2000fc00>
+10100d46:	8d5d                	or	a0,a0,a5
+10100d48:	40a72023          	sw	a0,1024(a4)
+10100d4c:	8082                	ret
+
+10100d4e <GPIO_ClrPin>:
+GPIO_ClrPin():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/iom.c:98
+/**
+ * @brief clear pin
+ *
+ * @param pin :GPIO_PINxx    surport '|' combine
+ */
+void GPIO_ClrPin(int pin) { IOM->DATA &= ~pin; }
+10100d4e:	400127b7          	lui	a5,0x40012
+10100d52:	4007a703          	lw	a4,1024(a5) # 40012400 <_sp+0x2000fc00>
+10100d56:	fff54513          	not	a0,a0
+10100d5a:	8d79                	and	a0,a0,a4
+10100d5c:	40a7a023          	sw	a0,1024(a5)
+10100d60:	8082                	ret
+
+10100d62 <WDT_Init>:
+WDT_Init():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:29
+void WDT_Init(int iDel, int iClkSrc, eOVModeType iOVMode) {
+    int iTmp = 1;
+    PARAM_CHECK((iClkSrc != PMU_CR_LPTCLKSEL_LRC) &&
+                (iClkSrc != PMU_CR_LPTCLKSEL_XTL));
+    PARAM_CHECK((iOVMode != WDT_OV_INT) && (iOVMode != WDT_OV_RST));
+    SYSC->CLKENCFG |= SYSC_CLKENCFG_WDT | SYSC_CLKENCFG_PMU;
+10100d62:	400016b7          	lui	a3,0x40001
+10100d66:	4698                	lw	a4,8(a3)
+10100d68:	6319                	lui	t1,0x6
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:30
+    PMU->WPT = PMU_WPT_V0;
+10100d6a:	400137b7          	lui	a5,0x40013
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:29
+    SYSC->CLKENCFG |= SYSC_CLKENCFG_WDT | SYSC_CLKENCFG_PMU;
+10100d6e:	00676733          	or	a4,a4,t1
+10100d72:	c698                	sw	a4,8(a3)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:30
+    PMU->WPT = PMU_WPT_V0;
+10100d74:	0c300293          	li	t0,195
+10100d78:	c0078713          	addi	a4,a5,-1024 # 40012c00 <_sp+0x20010400>
+10100d7c:	00572c23          	sw	t0,24(a4)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:31
+    PMU->WPT = PMU_WPT_V1;
+10100d80:	03c00313          	li	t1,60
+10100d84:	00672c23          	sw	t1,24(a4)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:32
+    PMU->CR &= ~PMU_CR_LPTCLKSEL;
+10100d88:	c007a683          	lw	a3,-1024(a5)
+10100d8c:	fdf6f693          	andi	a3,a3,-33
+10100d90:	c0d7a023          	sw	a3,-1024(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:34
+    if (iClkSrc == PMU_CR_LPTCLKSEL_LRC) {
+        PMU->WPT = PMU_WPT_V0;
+10100d94:	00572c23          	sw	t0,24(a4)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:35
+        PMU->WPT = PMU_WPT_V1;
+10100d98:	00672c23          	sw	t1,24(a4)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:36
+        PMU->CR |= PMU_CR_LPTCLKSEL_LRC;
+10100d9c:	c007a703          	lw	a4,-1024(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:33
+    if (iClkSrc == PMU_CR_LPTCLKSEL_LRC) {
+10100da0:	e9ad                	bnez	a1,10100e12 <WDT_Init+0xb0>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:36
+        PMU->CR |= PMU_CR_LPTCLKSEL_LRC;
+10100da2:	c0e7a023          	sw	a4,-1024(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:37
+        iDel = iDel >> 2;
+10100da6:	8509                	srai	a0,a0,0x2
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:43
+    } else {
+        PMU->WPT = PMU_WPT_V0;
+        PMU->WPT = PMU_WPT_V1;
+        PMU->CR |= PMU_CR_LPTCLKSEL_LRC;
+    }
+    while (iDel > 2) {
+10100da8:	4789                	li	a5,2
+10100daa:	06a7d963          	bge	a5,a0,10100e1c <WDT_Init+0xba>
+10100dae:	4785                	li	a5,1
+10100db0:	4689                	li	a3,2
+10100db2:	a011                	j	10100db6 <WDT_Init+0x54>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:44
+        ++iTmp;
+10100db4:	87ba                	mv	a5,a4
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:45
+        iDel >>= 1;
+10100db6:	8505                	srai	a0,a0,0x1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:44
+        ++iTmp;
+10100db8:	00178713          	addi	a4,a5,1
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:43
+    while (iDel > 2) {
+10100dbc:	fea6cce3          	blt	a3,a0,10100db4 <WDT_Init+0x52>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:48
+    }
+    PARAM_CHECK((iTmp > 16) || (iTmp == 0));
+    WDT_CR_REG = iTmp - 1;
+10100dc0:	40013737          	lui	a4,0x40013
+10100dc4:	40f72223          	sw	a5,1028(a4) # 40013404 <_sp+0x20010c04>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:50
+    if (iOVMode == WDT_OV_INT) {
+        WDT_CR_REG |= WDT_CR_WINTEN;
+10100dc8:	40472783          	lw	a5,1028(a4)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:49
+    if (iOVMode == WDT_OV_INT) {
+10100dcc:	ee15                	bnez	a2,10100e08 <WDT_Init+0xa6>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:50
+        WDT_CR_REG |= WDT_CR_WINTEN;
+10100dce:	0207e793          	ori	a5,a5,32
+10100dd2:	40f72223          	sw	a5,1028(a4)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:54
+    } else {
+        WDT_CR_REG &= ~WDT_CR_WINTEN;
+    }
+    PMU->WPT = PMU_WPT_V0;
+10100dd6:	400137b7          	lui	a5,0x40013
+10100dda:	0c300693          	li	a3,195
+10100dde:	c0d7ac23          	sw	a3,-1000(a5) # 40012c18 <_sp+0x20010418>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:55
+    PMU->WPT = PMU_WPT_V1;
+10100de2:	03c00693          	li	a3,60
+10100de6:	c0d7ac23          	sw	a3,-1000(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:56
+    PMU->CR |= PMU_CR_WDTCLKEN;
+10100dea:	c007a703          	lw	a4,-1024(a5)
+10100dee:	08076713          	ori	a4,a4,128
+10100df2:	c0e7a023          	sw	a4,-1024(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:57
+    WDT_StartCount();
+10100df6:	06900713          	li	a4,105
+10100dfa:	40e7a023          	sw	a4,1024(a5)
+10100dfe:	09600713          	li	a4,150
+10100e02:	40e7a023          	sw	a4,1024(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:58
+}
+10100e06:	8082                	ret
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:52
+        WDT_CR_REG &= ~WDT_CR_WINTEN;
+10100e08:	fdf7f793          	andi	a5,a5,-33
+10100e0c:	40f72223          	sw	a5,1028(a4)
+10100e10:	b7d9                	j	10100dd6 <WDT_Init+0x74>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:41
+        PMU->CR |= PMU_CR_LPTCLKSEL_LRC;
+10100e12:	c0e7a023          	sw	a4,-1024(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:43
+    while (iDel > 2) {
+10100e16:	4789                	li	a5,2
+10100e18:	f8a7cbe3          	blt	a5,a0,10100dae <WDT_Init+0x4c>
+10100e1c:	4781                	li	a5,0
+10100e1e:	b74d                	j	10100dc0 <WDT_Init+0x5e>
+
+10100e20 <WDT_DeInit>:
+WDT_DeInit():
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:65
+/**
+ * @brief wdt deinit
+ *
+ */
+void WDT_DeInit(void) {
+    PMU->WPT = PMU_WPT_V0;
+10100e20:	400137b7          	lui	a5,0x40013
+10100e24:	0c300693          	li	a3,195
+10100e28:	c0d7ac23          	sw	a3,-1000(a5) # 40012c18 <_sp+0x20010418>
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:66
+    PMU->WPT = PMU_WPT_V1;
+10100e2c:	03c00693          	li	a3,60
+10100e30:	c0d7ac23          	sw	a3,-1000(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:67
+    PMU->CR &= ~PMU_CR_WDTCLKEN;
+10100e34:	c007a703          	lw	a4,-1024(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:68
+    SYSC->CLKENCFG &= ~SYSC_CLKENCFG_WDT;
+10100e38:	400016b7          	lui	a3,0x40001
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:67
+    PMU->CR &= ~PMU_CR_WDTCLKEN;
+10100e3c:	f7f77713          	andi	a4,a4,-129
+10100e40:	c0e7a023          	sw	a4,-1024(a5)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:68
+    SYSC->CLKENCFG &= ~SYSC_CLKENCFG_WDT;
+10100e44:	469c                	lw	a5,8(a3)
+10100e46:	7771                	lui	a4,0xffffc
+10100e48:	177d                	addi	a4,a4,-1
+10100e4a:	8ff9                	and	a5,a5,a4
+10100e4c:	c69c                	sw	a5,8(a3)
+E:\work\project\bootloader\Debug/../FDV32S300/drivers/wdt.c:69
+}
+10100e4e:	8082                	ret
+
+10100e50 <exit>:
+exit():
+10100e50:	1151                	addi	sp,sp,-12
+10100e52:	c222                	sw	s0,4(sp)
+10100e54:	c406                	sw	ra,8(sp)
+10100e56:	efeff797          	auipc	a5,0xefeff
+10100e5a:	1aa78793          	addi	a5,a5,426 # 0 <__stack_size-0x800>
+10100e5e:	842a                	mv	s0,a0
+10100e60:	c791                	beqz	a5,10100e6c <exit+0x1c>
+10100e62:	4581                	li	a1,0
+10100e64:	00000097          	auipc	ra,0x0
+10100e68:	000000e7          	jalr	zero # 0 <__stack_size-0x800>
+10100e6c:	00000797          	auipc	a5,0x0
+10100e70:	01878793          	addi	a5,a5,24 # 10100e84 <_global_impure_ptr>
+10100e74:	4388                	lw	a0,0(a5)
+10100e76:	551c                	lw	a5,40(a0)
+10100e78:	c391                	beqz	a5,10100e7c <exit+0x2c>
+10100e7a:	9782                	jalr	a5
+10100e7c:	8522                	mv	a0,s0
+10100e7e:	ed8ff0ef          	jal	ra,10100556 <_exit>
